@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- ── SEO ── -->
+  <title>NAIL MARK | Luxury Nail Salon in Fort Lauderdale, FL</title>
+  <meta name="description" content="NAIL MARK – Fort Lauderdale's premier luxury nail studio at Coral Ridge Mall. Manicures, pedicures, gel, acrylics, dip powder, nail art, waxing & spa. Book now: (954) 563-0616." />
+  <meta name="keywords" content="nail salon Fort Lauderdale, luxury nail salon, manicure, pedicure, gel nails, acrylic nails, dip powder, nail art, NAIL MARK, Coral Ridge Mall" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://nailmark.com/" />
+
+  <!-- ── Open Graph ── -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nailmark.com/" />
+  <meta property="og:title" content="NAIL MARK | Luxury Nail Salon · Fort Lauderdale" />
+  <meta property="og:description" content="Experience premium nail care at NAIL MARK. Located at Coral Ridge Mall, Fort Lauderdale. Book your appointment today!" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1200&q=80&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NAIL MARK | Luxury Nail Salon · Fort Lauderdale" />
+  <meta name="twitter:description" content="Fort Lauderdale's premier nail studio. Gel, acrylics, dip, nail art & spa. Book at Coral Ridge Mall." />
+
+  <!-- ── Local Business Schema ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "NailSalon",
+    "name": "NAIL MARK",
+    "url": "https://nailmark.com",
+    "logo": "https://nailmark.com/logo.png",
+    "image": "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800",
+    "description": "Luxury nail salon at Coral Ridge Mall, Fort Lauderdale. Manicures, pedicures, gel, acrylics, dip powder, nail art, waxing, and spa services.",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "3200 N Federal Hwy Suite 201",
+      "addressLocality": "Fort Lauderdale",
+      "addressRegion": "FL",
+      "postalCode": "33306",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 26.1601,
+      "longitude": -80.1194
+    },
+    "telephone": "+19545630616",
+    "priceRange": "$$",
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"], "opens": "10:00", "closes": "19:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "11:00", "closes": "17:00" }
+    ]
+  }
+  </script>
+
+  <!-- ── Fonts ── -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- ── Tailwind ── -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold:    '#c9a961',
+            'gold-l':'#d9be85',
+            nude:    '#f5e6e0',
+            blush:   '#f0d4c8',
+            beige:   '#e8dcc8',
+            ink:     '#1a1a1a',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans:  ['Inter', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: #1a1a1a; background: #fff; overflow-x: hidden; }
+
+    /* ── Scroll-reveal ── */
+    .reveal { opacity: 0; transform: translateY(32px); transition: opacity .75s ease, transform .75s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal.from-left  { transform: translateX(-40px); }
+    .reveal.from-right { transform: translateX( 40px); }
+    .reveal.from-left.visible, .reveal.from-right.visible { transform: translateX(0); }
+    .d1 { transition-delay: .10s; } .d2 { transition-delay: .20s; }
+    .d3 { transition-delay: .30s; } .d4 { transition-delay: .40s; }
+    .d5 { transition-delay: .50s; } .d6 { transition-delay: .60s; }
+    .d7 { transition-delay: .70s; } .d8 { transition-delay: .80s; }
+
+    /* ── Typography helpers ── */
+    .heading { font-family: 'Cormorant Garamond', serif; }
+    .tag-line {
+      font-size: .65rem; font-weight: 600; letter-spacing: .35em;
+      text-transform: uppercase; color: #c9a961; display: block; margin-bottom: .6rem;
+    }
+    .section-rule {
+      width: 36px; height: 1px; background: #c9a961; margin-bottom: 1.25rem;
+    }
+    .section-rule.mx { margin-left: auto; margin-right: auto; }
+
+
+    /* ── Navigation ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      transition: background .4s ease, box-shadow .4s ease, padding .4s ease;
+      padding: 1.4rem 0;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,.96); backdrop-filter: blur(20px);
+      box-shadow: 0 2px 40px rgba(0,0,0,.08);
+      border-bottom: 1px solid rgba(201,169,97,.18); padding: .9rem 0;
+    }
+    .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.65rem; font-weight: 600;
+      letter-spacing: .18em; color: #fff; text-decoration: none; transition: color .4s;
+    }
+    #navbar.scrolled .nav-logo { color: #1a1a1a; }
+    .nav-logo span { color: #c9a961; }
+    .nav-links { display: flex; gap: 2.25rem; align-items: center; }
+    .nav-links a {
+      font-size: .72rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
+      color: rgba(255,255,255,.88); text-decoration: none; transition: color .3s;
+    }
+    #navbar.scrolled .nav-links a { color: #1a1a1a; }
+    .nav-links a:hover { color: #c9a961; }
+    .nav-cta {
+      background: #c9a961; color: #fff !important; padding: .55rem 1.4rem;
+      font-size: .68rem !important; font-weight: 600 !important;
+      letter-spacing: .14em !important; text-transform: uppercase !important;
+      border-radius: 0; transition: background .3s, transform .2s !important;
+      text-decoration: none;
+    }
+    .nav-cta:hover { background: #1a1a1a !important; transform: translateY(-1px); }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: #fff; transition: background .4s; }
+    #navbar.scrolled .hamburger span { background: #1a1a1a; }
+
+    /* mobile menu */
+    #mobile-menu {
+      position: fixed; inset: 0; background: #fff; z-index: 999;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2rem; opacity: 0; pointer-events: none; transition: opacity .35s ease;
+    }
+    #mobile-menu.open { opacity: 1; pointer-events: all; }
+    #mobile-menu a {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.4rem; font-weight: 400;
+      color: #1a1a1a; text-decoration: none; transition: color .3s;
+    }
+    #mobile-menu a:hover { color: #c9a961; }
+    #menu-close {
+      position: absolute; top: 1.4rem; right: 1.6rem;
+      background: none; border: none; font-size: 1.8rem; cursor: pointer; color: #1a1a1a;
+    }
+
+    /* ── Hero ── */
+    #hero {
+      position: relative; height: 100vh; min-height: 680px;
+      display: flex; align-items: center; justify-content: center; overflow: hidden;
+    }
+    #hero-bg {
+      position: absolute; inset: 0;
+      background: url('https://images.unsplash.com/photo-1604654894610-df63bc536371?w=1600&q=80&auto=format&fit=crop') center/cover no-repeat;
+      transform: scale(1.1); will-change: transform;
+    }
+    #hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to bottom, rgba(15,15,15,.58) 0%, rgba(15,15,15,.45) 55%, rgba(15,15,15,.65) 100%);
+    }
+    .hero-content { position: relative; z-index: 10; text-align: center; padding: 0 1.5rem; max-width: 820px; }
+
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    .h-anim { opacity: 0; transform: translateY(28px); animation: fadeUp .9s ease forwards; }
+    .h-a1 { animation-delay: .3s; } .h-a2 { animation-delay: .55s; }
+    .h-a3 { animation-delay: .75s; } .h-a4 { animation-delay: .95s; }
+    .h-a5 { animation-delay: 1.2s; }
+
+    .hero-tag {
+      display: inline-block; font-size: .68rem; font-weight: 500; letter-spacing: .35em;
+      text-transform: uppercase; color: #c9a961; border: 1px solid rgba(201,169,97,.5);
+      padding: .35rem .9rem; margin-bottom: 1.5rem;
+    }
+    .hero-h1 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2.8rem, 7vw, 5.2rem);
+      font-weight: 400; color: #fff; line-height: 1.08; margin-bottom: 1.4rem;
+    }
+    .hero-h1 em { font-style: italic; color: #d9be85; }
+    .hero-sub {
+      font-size: .95rem; font-weight: 300; color: rgba(255,255,255,.78);
+      margin-bottom: 2.5rem; line-height: 1.8; letter-spacing: .03em;
+    }
+    .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-gold {
+      background: #c9a961; color: #fff; padding: .9rem 2.2rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      border: none; cursor: pointer; transition: background .3s, transform .2s, box-shadow .3s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-gold:hover { background: #b8943f; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,169,97,.45); }
+
+    .btn-ghost {
+      background: transparent; color: #fff; padding: .9rem 2.2rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      border: 1.5px solid rgba(255,255,255,.6); cursor: pointer;
+      transition: background .3s, border-color .3s, transform .2s;
+      text-decoration: none; display: inline-block;
+    }
+    .btn-ghost:hover { background: rgba(255,255,255,.1); border-color: #fff; transform: translateY(-2px); }
+
+    .hero-scroll-ind {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: .4rem;
+    }
+    .hero-scroll-ind span { font-size: .58rem; letter-spacing: .35em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    @keyframes lineGrow { 0%,100% { height: 28px; opacity: .55; } 50% { height: 42px; opacity: 1; } }
+    .hero-scroll-line { width: 1px; background: rgba(255,255,255,.55); animation: lineGrow 2s ease-in-out infinite; }
+
+    /* ── Section wrappers ── */
+    .section-pad { padding: 6rem 1.5rem; }
+    .section-pad-sm { padding: 4.5rem 1.5rem; }
+    .container { max-width: 1200px; margin: 0 auto; }
+
+    /* ── About ── */
+    #about { background: #f5e6e0; }
+    .about-img-wrap { position: relative; }
+    .about-img-wrap img { width: 100%; height: 540px; object-fit: cover; display: block; }
+    .about-badge {
+      position: absolute; bottom: -1.5rem; right: -1.5rem;
+      background: #c9a961; color: #fff; padding: 1.4rem 1.6rem; text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .about-badge .num { font-size: 2.2rem; font-weight: 600; line-height: 1; display: block; }
+    .about-badge .lbl { font-family: 'Inter', sans-serif; font-size: .62rem; letter-spacing: .15em; text-transform: uppercase; }
+    .stat-divider { border-top: 1px solid rgba(201,169,97,.25); margin-top: 2.5rem; padding-top: 2.5rem; display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; }
+    .stat-n { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: #c9a961; display: block; }
+    .stat-l { font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: #7a7a7a; }
+
+    /* ── Services ── */
+    #services { background: #fff; }
+    .services-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+    .svc-card {
+      background: #fff; border: 1px solid rgba(201,169,97,.14); padding: 1.75rem 1.4rem;
+      position: relative; overflow: hidden; transition: transform .4s ease, box-shadow .4s ease;
+      cursor: default;
+    }
+    .svc-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2.5px;
+      background: #c9a961; transform: scaleX(0); transform-origin: left; transition: transform .4s ease;
+    }
+    .svc-card:hover::after { transform: scaleX(1); }
+    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 24px 50px rgba(0,0,0,.09); }
+    .svc-icon {
+      width: 46px; height: 46px; background: #f5e6e0; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+      margin-bottom: 1.1rem; transition: background .3s;
+    }
+    .svc-card:hover .svc-icon { background: #c9a961; }
+    .svc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 500; margin-bottom: .45rem; }
+    .svc-desc { font-size: .78rem; color: #7a7a7a; line-height: 1.65; margin-bottom: 1.1rem; }
+    .svc-price { font-size: .7rem; font-weight: 600; letter-spacing: .1em; color: #c9a961; text-transform: uppercase; }
+
+    /* ── Why ── */
+    #why { background: #1a1a1a; }
+    .why-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .why-card {
+      background: rgba(255,255,255,.03); border: 1px solid rgba(255,255,255,.07);
+      padding: 2rem 1.75rem; transition: background .4s, border-color .4s, transform .4s;
+    }
+    .why-card:hover { background: rgba(201,169,97,.07); border-color: rgba(201,169,97,.28); transform: translateY(-4px); }
+    .why-icon { font-size: 1.75rem; margin-bottom: .85rem; display: block; }
+    .why-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; color: #fff; margin-bottom: .6rem; }
+    .why-desc { font-size: .78rem; color: rgba(255,255,255,.48); line-height: 1.75; }
+
+    /* ── Gallery ── */
+    #gallery { background: #f5e6e0; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: .6rem;
+    }
+    .g-item { position: relative; overflow: hidden; }
+    .g-item:nth-child(1) { grid-row: 1 / 3; }
+    .g-item:nth-child(5) { grid-column: 2 / 4; }
+    .g-item img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform .65s ease; display: block;
+    }
+    .g-item:hover img { transform: scale(1.07); }
+    .g-overlay {
+      position: absolute; inset: 0; background: rgba(201,169,97,.28);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .4s;
+    }
+    .g-item:hover .g-overlay { opacity: 1; }
+    .g-plus {
+      width: 48px; height: 48px; border: 1.5px solid #fff; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; color: #fff;
+      font-size: 1.4rem; transform: scale(.8); transition: transform .3s;
+    }
+    .g-item:hover .g-plus { transform: scale(1); }
+
+    /* ── Testimonials carousel ── */
+    #testimonials { background: #fff; }
+
+    .testi-carousel-wrap { position: relative; }
+
+    .testi-track-outer {
+      overflow: hidden;
+      cursor: grab;
+      user-select: none;
+    }
+    .testi-track-outer:active { cursor: grabbing; }
+
+    .testi-track {
+      display: flex;
+      gap: 1.5rem;
+      transition: transform .55s cubic-bezier(.25,.8,.25,1);
+      will-change: transform;
+    }
+
+    .testi-card {
+      background: #fff;
+      border: 1px solid rgba(201,169,97,.14);
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,.04);
+      transition: transform .4s, box-shadow .4s, border-color .4s;
+      flex: 0 0 calc((100% - 3rem) / 3);
+      min-width: 0;
+    }
+    @media (max-width: 900px) {
+      .testi-card { flex: 0 0 calc((100% - 1.5rem) / 2); }
+    }
+    @media (max-width: 580px) {
+      .testi-card { flex: 0 0 100%; }
+    }
+    .testi-card:hover { transform: translateY(-5px); box-shadow: 0 24px 50px rgba(0,0,0,.08); border-color: rgba(201,169,97,.3); }
+    .testi-quote { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; color: #c9a961; line-height: 1; opacity: .35; margin-bottom: .25rem; }
+    .stars { color: #c9a961; letter-spacing: .06em; margin-bottom: .85rem; font-size: .9rem; }
+    .testi-text { font-size: .84rem; color: #6e6e6e; line-height: 1.85; margin-bottom: 1.5rem; font-style: italic; }
+    .testi-author { display: flex; align-items: center; gap: .75rem; }
+    .testi-avatar { width: 42px; height: 42px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .testi-name { font-weight: 600; font-size: .84rem; }
+    .testi-source { font-size: .68rem; color: #9a9a9a; margin-top: .1rem; }
+
+    /* Arrow buttons */
+    .testi-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 44px; height: 44px; border-radius: 50%;
+      background: #fff; border: 1px solid rgba(201,169,97,.35);
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 10; transition: background .3s, border-color .3s, transform .2s;
+      font-size: 1rem; color: #1a1a1a;
+    }
+    .testi-arrow:hover { background: #c9a961; border-color: #c9a961; color: #fff; transform: translateY(-50%) scale(1.05); }
+    .testi-prev { left: -22px; }
+    .testi-next { right: -22px; }
+    @media (max-width: 768px) {
+      .testi-prev { left: 0; }
+      .testi-next { right: 0; }
+    }
+
+    /* Dots */
+    .testi-dots {
+      display: flex; justify-content: center; gap: .5rem; margin-top: 2rem;
+    }
+    .testi-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: rgba(201,169,97,.25); border: none; cursor: pointer;
+      transition: background .3s, transform .2s; padding: 0;
+    }
+    .testi-dot.active { background: #c9a961; transform: scale(1.3); }
+
+    /* ── Full Price Menu (tabs) ── */
+    .price-tabs-wrap { margin-top: 4rem; }
+    .price-tabs {
+      display: flex; flex-wrap: wrap; gap: .5rem;
+      margin-bottom: 2.5rem; border-bottom: 1px solid rgba(201,169,97,.18); padding-bottom: 0;
+    }
+    .ptab {
+      background: none; border: none; cursor: pointer;
+      font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 600;
+      letter-spacing: .14em; text-transform: uppercase; color: #9a9a9a;
+      padding: .65rem 1.1rem .85rem; position: relative; transition: color .3s;
+    }
+    .ptab::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
+      background: #c9a961; transform: scaleX(0); transition: transform .3s;
+    }
+    .ptab.active { color: #1a1a1a; }
+    .ptab.active::after { transform: scaleX(1); }
+    .ptab:hover { color: #c9a961; }
+
+    .price-panel { display: none; }
+    .price-panel.active { display: block; }
+
+    .price-cat-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500;
+      color: #1a1a1a; margin-bottom: 1.25rem; padding-bottom: .75rem;
+      border-bottom: 1px solid rgba(201,169,97,.2);
+    }
+    .price-rows { display: flex; flex-direction: column; }
+    .price-row {
+      display: flex; justify-content: space-between; align-items: baseline;
+      padding: .75rem 0; border-bottom: 1px solid rgba(0,0,0,.05);
+      gap: 1rem;
+    }
+    .price-row:last-child { border-bottom: none; }
+    .price-row-info { flex: 1; min-width: 0; }
+    .price-row-name { font-size: .875rem; font-weight: 500; color: #1a1a1a; }
+    .price-row-desc { font-size: .75rem; color: #9a9a9a; line-height: 1.6; margin-top: .2rem; }
+    .price-row-note { font-size: .72rem; color: #b8943f; margin-top: .15rem; }
+    .price-val { font-size: .875rem; font-weight: 600; color: #1a1a1a; white-space: nowrap; flex-shrink: 0; }
+
+    .price-sub-section { margin-top: 2rem; }
+    .price-sub-title {
+      font-size: .65rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase;
+      color: #c9a961; margin-bottom: 1rem;
+    }
+    .price-note-final {
+      margin-top: 2rem; padding: 1rem 1.25rem;
+      background: #f5e6e0; border-left: 3px solid #c9a961;
+      font-size: .78rem; font-weight: 600; color: #1a1a1a; letter-spacing: .06em;
+    }
+
+    /* two-col price layout for wider panels */
+    .price-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
+    @media (max-width: 640px) { .price-two-col { grid-template-columns: 1fr; } }
+
+    /* ── Location ── */
+    #location { background: #f5e6e0; }
+    .loc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .map-wrap { height: 400px; overflow: hidden; border: 1px solid rgba(201,169,97,.25); }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+    .hours-card {
+      background: rgba(255,255,255,.75); backdrop-filter: blur(20px);
+      border: 1px solid rgba(201,169,97,.2); padding: 2rem;
+      box-shadow: 0 8px 40px rgba(0,0,0,.06);
+    }
+    .hours-title { font-family: 'Cormorant Garamond', serif; font-size: 1.45rem; margin-bottom: 1.4rem; }
+    .hours-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .65rem 0; border-bottom: 1px solid rgba(201,169,97,.1);
+      font-size: .84rem;
+    }
+    .hours-row:last-of-type { border-bottom: none; }
+    .hours-day { font-weight: 500; }
+    .hours-time { color: #7a7a7a; }
+    .hours-time.today { color: #c9a961; font-weight: 600; }
+    .contact-row { display: flex; align-items: flex-start; gap: .75rem; font-size: .84rem; margin-bottom: .85rem; }
+    .contact-icon { color: #c9a961; flex-shrink: 0; margin-top: 2px; }
+
+    /* ── Gift card strip ── */
+    .gift-strip {
+      background: linear-gradient(135deg,#1a1a1a 0%,#252525 100%);
+      border: 1px solid rgba(201,169,97,.3); padding: 1.5rem; margin-top: 1.4rem;
+    }
+
+    /* ── Final CTA ── */
+    #cta {
+      background: #1a1a1a; position: relative; overflow: hidden;
+      text-align: center;
+    }
+    #cta::before {
+      content: 'NAIL MARK'; position: absolute; font-family: 'Cormorant Garamond', serif;
+      font-size: 16vw; font-weight: 700; color: rgba(255,255,255,.025);
+      letter-spacing: .08em; top: 50%; left: 50%; transform: translate(-50%,-50%);
+      white-space: nowrap; pointer-events: none; user-select: none;
+    }
+    #cta h2 {
+      font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,4.5vw,3.6rem);
+      font-weight: 400; color: #fff; margin-bottom: .85rem; line-height: 1.15;
+    }
+    #cta h2 em { font-style: italic; color: #d9be85; }
+    #cta p { color: rgba(255,255,255,.5); margin-bottom: 2.5rem; font-size: .9rem; }
+
+    .btn-gold-dark {
+      background: #c9a961; color: #fff; padding: .9rem 2.2rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      border: none; cursor: pointer; text-decoration: none; display: inline-block;
+      transition: background .3s, transform .2s, box-shadow .3s;
+    }
+    .btn-gold-dark:hover { background: #b8943f; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,169,97,.45); }
+    .btn-ghost-light {
+      background: transparent; color: rgba(255,255,255,.8); padding: .9rem 2.2rem;
+      font-size: .72rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase;
+      border: 1.5px solid rgba(255,255,255,.35); cursor: pointer;
+      text-decoration: none; display: inline-block;
+      transition: background .3s, border-color .3s, transform .2s;
+    }
+    .btn-ghost-light:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.7); transform: translateY(-2px); }
+
+    /* ── Footer (simplified) ── */
+    footer { background: #111; }
+    .footer-top { padding: 2.75rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,.05); text-align: center; }
+    .footer-brand { font-family: 'Cormorant Garamond',serif; font-size: 1.6rem; font-weight: 600; letter-spacing: .18em; color: #fff; margin-bottom: .6rem; }
+    .footer-brand span { color: #c9a961; }
+    .footer-desc { font-size: .78rem; color: rgba(255,255,255,.38); line-height: 1.8; margin-bottom: 1.4rem; max-width: 420px; margin-left: auto; margin-right: auto; }
+    .social-row { display: flex; gap: .6rem; justify-content: center; }
+    .soc-btn {
+      width: 34px; height: 34px; border: 1px solid rgba(255,255,255,.14);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.45); text-decoration: none; font-size: .9rem;
+      transition: background .3s, border-color .3s, color .3s;
+    }
+    .soc-btn:hover { background: #c9a961; border-color: #c9a961; color: #fff; }
+    .footer-bottom { padding: 1.1rem 1.5rem; text-align: center; font-size: .68rem; color: rgba(255,255,255,.25); border-top: 1px solid rgba(255,255,255,.04); }
+    .footer-bottom a { color: #c9a961; text-decoration: none; }
+
+    /* ── Floating Social Sidebar (desktop — posh style) ── */
+    #float-social {
+      position: fixed; right: 0; top: 50%; transform: translateY(-50%);
+      z-index: 200; display: flex; flex-direction: column; align-items: center;
+    }
+    .fs-btn {
+      position: relative;
+      display: flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px;
+      background: rgba(255,255,255,.92); backdrop-filter: blur(8px);
+      color: #1a1a1a; text-decoration: none;
+      border-left:   1px solid #e8dcc8;
+      border-top:    1px solid #e8dcc8;
+      border-bottom: 1px solid #e8dcc8;
+      box-shadow: -3px 0 16px rgba(0,0,0,.08);
+      transition: background .25s, color .25s, transform .25s;
+      opacity: 0;
+    }
+    .fs-btn:first-child { border-radius: 8px 0 0 0; }
+    .fs-btn:last-child  { border-radius: 0 0 0 8px; }
+    .fs-btn:hover { background: #c9a961; color: #fff; transform: translateX(-4px) scale(1.05); }
+
+    /* Tooltip */
+    .fs-tip {
+      position: absolute; right: calc(100% + 10px);
+      background: #1a1a1a; color: #fff;
+      font-size: .68rem; font-weight: 500; letter-spacing: .05em;
+      padding: .3rem .65rem; border-radius: 4px; white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity .2s;
+    }
+    .fs-tip::after {
+      content: ''; position: absolute; left: 100%; top: 50%; transform: translateY(-50%);
+      border: 5px solid transparent; border-left-color: #1a1a1a;
+    }
+    .fs-btn:hover .fs-tip { opacity: 1; }
+
+    /* Slide-in animation */
+    @keyframes fsSlideIn { from { opacity:0; transform:translateX(50px); } to { opacity:1; transform:translateX(0); } }
+    .fs-btn { animation: fsSlideIn .55s cubic-bezier(.22,1,.36,1) forwards; }
+    .fs-btn:nth-child(1) { animation-delay: .9s; }
+    .fs-btn:nth-child(2) { animation-delay: 1.05s; }
+    .fs-btn:nth-child(3) { animation-delay: 1.2s; }
+    .fs-btn:nth-child(4) { animation-delay: 1.35s; }
+
+    /* ── Mobile float bar (posh style — icon + label, white frosted glass) ── */
+    #mobile-float {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(12px);
+      border-top: 1px solid #e8dcc8; box-shadow: 0 -4px 24px rgba(0,0,0,.08);
+    }
+    .mf-inner { display: flex; justify-content: space-around; align-items: center; padding: .6rem 1rem; }
+    .mf-btn {
+      display: flex; flex-direction: column; align-items: center; gap: .22rem;
+      text-decoration: none; color: #1a1a1a;
+      transition: color .2s; padding: .25rem .5rem;
+    }
+    .mf-btn:hover, .mf-btn:active { color: #c9a961; }
+    .mf-btn svg { width: 20px; height: 20px; display: block; }
+    .mf-label { font-size: .58rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+
+    /* ── Responsive ── */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta-desktop { display: none; }
+      .hamburger { display: flex; }
+      .about-grid { grid-template-columns: 1fr !important; }
+      .about-img-wrap img { height: 320px; }
+      .about-badge { right: 0; }
+      .why-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+      .g-item:nth-child(1) { grid-row: auto; }
+      .g-item:nth-child(5) { grid-column: auto; }
+      .loc-grid { grid-template-columns: 1fr; }
+      #float-social { display: none; }
+      #mobile-float { display: block; }
+      body { padding-bottom: 66px; }
+    }
+    @media (max-width: 540px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .g-item { height: 220px; }
+    }
+    @media (max-width: 540px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .g-item { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ────────────────────────────────────────────
+     NAVIGATION
+──────────────────────────────────────────── -->
+<nav id="navbar" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">NAIL<span>&nbsp;MARK</span></a>
+
+    <div class="nav-links" role="list">
+      <a href="#about"        role="listitem">About</a>
+      <a href="#services"     role="listitem">Services</a>
+      <a href="#gallery"      role="listitem">Gallery</a>
+      <a href="#testimonials" role="listitem">Testimonials</a>
+      <a href="#location"     role="listitem">Location</a>
+      <a href="tel:9545630616" class="nav-cta" role="listitem">Book Now</a>
+    </div>
+
+    <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button id="menu-close" aria-label="Close menu">✕</button>
+  <a href="#about"        class="mm-link">About</a>
+  <a href="#services"     class="mm-link">Services</a>
+  <a href="#gallery"      class="mm-link">Gallery</a>
+  <a href="#testimonials" class="mm-link">Testimonials</a>
+  <a href="#location"     class="mm-link">Location</a>
+  <a href="tel:9545630616" style="background:#c9a961;color:#fff;padding:.8rem 2rem;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;text-decoration:none;margin-top:.75rem;">Call to Book</a>
+</div>
+
+<!-- ────────────────────────────────────────────
+     HERO
+──────────────────────────────────────────── -->
+<section id="hero" aria-label="Hero">
+  <div id="hero-bg" role="img" aria-label="Luxury nail salon interior"></div>
+  <div id="hero-overlay"></div>
+
+  <div class="hero-content">
+    <div class="hero-tag h-anim h-a1">Fort Lauderdale's Premier Nail Studio</div>
+    <h1 class="hero-h1 h-anim h-a2">
+      Luxury Nails.<br><em>Modern Beauty.</em><br>Perfect Style.
+    </h1>
+    <p class="hero-sub h-anim h-a3">
+      Experience premium nail care at NAIL MARK in Fort Lauderdale.<br>
+      Located at Coral Ridge Mall — where elegance meets artistry.
+    </p>
+    <div class="hero-btns h-anim h-a4">
+      <a href="tel:9545630616" class="btn-gold">Book Appointment</a>
+      <a href="tel:9545630616" class="btn-ghost">📞 Call Now</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-ind h-anim h-a5" aria-hidden="true">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     ABOUT
+──────────────────────────────────────────── -->
+<section id="about" class="section-pad">
+  <div class="container">
+    <div class="about-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;">
+
+      <div class="about-img-wrap reveal from-left">
+        <img
+          src="https://images.unsplash.com/photo-1610992015732-2449b76344bc?w=700&q=80&auto=format&fit=crop"
+          alt="NAIL MARK luxury salon interior"
+          loading="lazy"
+          width="700" height="540"
+        />
+        <div class="about-badge">
+          <span class="num">5★</span>
+          <span class="lbl">Rated Salon</span>
+        </div>
+      </div>
+
+      <div>
+        <span class="tag-line reveal d1">Our Story</span>
+        <div class="section-rule reveal d2"></div>
+        <h2 class="heading reveal d2" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;margin-bottom:1.25rem;">
+          Where Beauty<br>Meets <em style="color:#c9a961;">Artistry</em>
+        </h2>
+        <p class="reveal d3" style="color:#7a7a7a;font-size:.875rem;line-height:1.9;margin-bottom:1.1rem;">
+          At NAIL MARK, we believe every visit should feel like a luxurious retreat. Nestled in Coral Ridge Mall in the heart of Fort Lauderdale, our studio is your personal sanctuary — where modern beauty meets refined craftsmanship.
+        </p>
+        <p class="reveal d4" style="color:#7a7a7a;font-size:.875rem;line-height:1.9;margin-bottom:2rem;">
+          Our experienced nail technicians stay ahead of the latest trends and techniques, using only premium products and maintaining impeccable hygiene standards. Every client leaves feeling confident, beautiful, and ready to show off their nails.
+        </p>
+        <div class="stat-divider reveal d5">
+          <div style="text-align:center;">
+            <span class="stat-n">8+</span>
+            <span class="stat-l">Services</span>
+          </div>
+          <div style="text-align:center;">
+            <span class="stat-n">500+</span>
+            <span class="stat-l">Happy Clients</span>
+          </div>
+          <div style="text-align:center;">
+            <span class="stat-n">100%</span>
+            <span class="stat-l">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     SERVICES
+──────────────────────────────────────────── -->
+<section id="services" class="section-pad" style="background:#fff;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <span class="tag-line reveal">What We Offer</span>
+      <div class="section-rule mx reveal d1"></div>
+      <h2 class="heading reveal d2" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:400;margin-bottom:1rem;">
+        Our Premium <em style="color:#c9a961;">Services</em>
+      </h2>
+      <p class="reveal d3" style="color:#7a7a7a;font-size:.875rem;max-width:480px;margin:0 auto;line-height:1.8;">
+        From classic manicures to intricate nail art, we offer a full menu of luxury nail and spa services.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <div class="svc-card reveal d1">
+        <div class="svc-icon">💅</div>
+        <div class="svc-name">Manicure</div>
+        <p class="svc-desc">Classic and luxury manicures with cuticle care, nail shaping, and your choice of regular or gel polish.</p>
+        <span class="svc-price">Starting at $24</span>
+      </div>
+      <div class="svc-card reveal d2">
+        <div class="svc-icon">🦶</div>
+        <div class="svc-name">Pedicure</div>
+        <p class="svc-desc">Relaxing spa pedicures with nail care, buffing, lotion massage, hot towel, and polish.</p>
+        <span class="svc-price">Starting at $36</span>
+      </div>
+      <div class="svc-card reveal d3">
+        <div class="svc-icon">✨</div>
+        <div class="svc-name">Gel Nails</div>
+        <p class="svc-desc">Long-lasting shellac/gel polish — no smudge, no chip, no dry time. Lasts two weeks or more.</p>
+        <span class="svc-price">Starting at $38</span>
+      </div>
+      <div class="svc-card reveal d4">
+        <div class="svc-icon">💎</div>
+        <div class="svc-name">Acrylic Nails</div>
+        <p class="svc-desc">Expert full sets and fills with sculpted acrylics using non-MMA products for healthy nails.</p>
+        <span class="svc-price">Starting at $43</span>
+      </div>
+      <div class="svc-card reveal d5">
+        <div class="svc-icon">🌸</div>
+        <div class="svc-name">Dip Powder</div>
+        <p class="svc-desc">Odorless, durable dip powder nails — stronger than traditional gel with a natural-looking finish.</p>
+        <span class="svc-price">Starting at $50</span>
+      </div>
+      <div class="svc-card reveal d6">
+        <div class="svc-icon">🎨</div>
+        <div class="svc-name">Nail Art</div>
+        <p class="svc-desc">French, ombre, chrome, cat eye, 3D designs — custom nail art for every style and occasion.</p>
+        <span class="svc-price">Starting at $6</span>
+      </div>
+      <div class="svc-card reveal d7">
+        <div class="svc-icon">🌿</div>
+        <div class="svc-name">Waxing</div>
+        <p class="svc-desc">Professional waxing for brows, lip, chin, arms, legs, full face, bikini, and Brazilian.</p>
+        <span class="svc-price">Starting at $12</span>
+      </div>
+      <div class="svc-card reveal d8">
+        <div class="svc-icon">🛁</div>
+        <div class="svc-name">Spa Treatments</div>
+        <p class="svc-desc">Paraffin wax, hot stone, volcano pedicure, collagen mask, and extended massage add-ons.</p>
+        <span class="svc-price">Starting at $14</span>
+      </div>
+    </div>
+
+    <!-- ── Full Price Menu ── -->
+    <div class="price-tabs-wrap reveal">
+      <div style="text-align:center;margin:4rem 0 2.5rem;">
+        <span class="tag-line">Complete Price Menu</span>
+        <div class="section-rule mx"></div>
+        <h3 class="heading" style="font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:400;">
+          Full Services &amp; <em style="color:#c9a961;">Pricing</em>
+        </h3>
+      </div>
+
+      <div class="price-tabs" role="tablist">
+        <button class="ptab active" role="tab" data-tab="manicures">Manicures</button>
+        <button class="ptab" role="tab" data-tab="pedicures">Pedicures</button>
+        <button class="ptab" role="tab" data-tab="kids">Kids</button>
+        <button class="ptab" role="tab" data-tab="dipping">Dipping Powder</button>
+        <button class="ptab" role="tab" data-tab="enhancements">Enhancements</button>
+        <button class="ptab" role="tab" data-tab="additional">Additional</button>
+        <button class="ptab" role="tab" data-tab="waxing">Waxing</button>
+      </div>
+
+      <!-- MANICURES -->
+      <div class="price-panel active" id="tab-manicures">
+        <div class="price-rows">
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Basic Manicure</div>
+              <div class="price-row-desc">Nail trimming &amp; shaping, cuticle grooming, lotion massage, and polish.</div>
+            </div>
+            <div class="price-val">$24</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Shellac / Gel Manicure</div>
+              <div class="price-row-desc">Gel polish lasts two weeks or more. No smudge, no chip, no dry time.</div>
+              <div class="price-row-note">Soak-off gel +$2</div>
+            </div>
+            <div class="price-val">$38</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Deluxe Manicure</div>
+              <div class="price-row-desc">Extended hand massage, paraffin treatment, finished with a hot towel.</div>
+            </div>
+            <div class="price-val">$40</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PEDICURES -->
+      <div class="price-panel" id="tab-pedicures">
+        <div class="price-rows">
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Spa Pedicure</div>
+              <div class="price-row-desc">Nail care, buffing, lotion massage, hot towel, and polish.</div>
+              <div class="price-row-note">Buffing shiny +$5</div>
+            </div>
+            <div class="price-val">$36</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Shellac / Gel Pedicure</div>
+              <div class="price-row-desc">Spa pedicure with long-lasting gel color.</div>
+              <div class="price-row-note">Soak-off gel +$3</div>
+            </div>
+            <div class="price-val">$54</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Signature Pedicure</div>
+              <div class="price-row-desc">Callus treatment, sugar scrub, mud mask, and hot towel.</div>
+              <div class="price-row-note">Add gel +$17</div>
+            </div>
+            <div class="price-val">$45</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Paraffin Pedicure</div>
+              <div class="price-row-desc">Signature pedicure plus paraffin wax treatment.</div>
+              <div class="price-row-note">Add gel +$17</div>
+            </div>
+            <div class="price-val">$55</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Hot Stone Pedicure</div>
+              <div class="price-row-desc">Includes hot stone massage for lower legs and feet.</div>
+              <div class="price-row-note">Add gel +$17</div>
+            </div>
+            <div class="price-val">$70</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Volcano Pedicure</div>
+              <div class="price-row-desc">Detox volcano crystals, sugar scrub, collagen mask, paraffin wax, and extended massage.</div>
+              <div class="price-row-note">Add gel +$17</div>
+            </div>
+            <div class="price-val">$75</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Add-On Leg Massage</div>
+              <div class="price-row-desc">10 Minutes · 15 Minutes · 30 Minutes</div>
+            </div>
+            <div class="price-val">Ask us</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KIDS -->
+      <div class="price-panel" id="tab-kids">
+        <p style="font-size:.8rem;color:#9a9a9a;margin-bottom:1.5rem;">For children 10 years old &amp; under.</p>
+        <div class="price-rows">
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Manicure</div></div>
+            <div class="price-val">$16</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Pedicure</div>
+              <div class="price-row-note">Add gel +$14</div>
+            </div>
+            <div class="price-val">$26</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Polish Change (Hands)</div></div>
+            <div class="price-val">$11</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Polish Change (Feet)</div></div>
+            <div class="price-val">$14</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DIPPING POWDER -->
+      <div class="price-panel" id="tab-dipping">
+        <div class="price-sub-title">Healthy Nails — No Odor, No UV Light</div>
+        <div class="price-rows">
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Dipping Powder Full Set</div></div>
+            <div class="price-val">$50 &amp; Up</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Dipping Powder Pink &amp; White Full Set</div></div>
+            <div class="price-val">$60 &amp; Up</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Ombre Full Set</div></div>
+            <div class="price-val">$68 &amp; Up</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Add Tip Extension</div></div>
+            <div class="price-val">$5</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Custom Nail Shape (Oval, Almond, Stiletto)</div></div>
+            <div class="price-val">$5</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Length</div></div>
+            <div class="price-val">$5 &amp; Up</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info"><div class="price-row-name">Add Cuticle Trimming</div></div>
+            <div class="price-val">$10</div>
+          </div>
+          <div class="price-row">
+            <div class="price-row-info">
+              <div class="price-row-name">Soak-Off Dip</div>
+              <div class="price-row-note">Extra charge applies</div>
+            </div>
+            <div class="price-val">+$2</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENHANCEMENTS -->
+      <div class="price-panel" id="tab-enhancements">
+        <div class="price-sub-title">Non-MMA Products Only</div>
+        <div class="price-two-col">
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic Full Set</div></div>
+              <div class="price-val">$43 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Liquid Gel Full Set (Clear)</div></div>
+              <div class="price-val">$60 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic Fill</div></div>
+              <div class="price-val">$33 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Liquid Gel Fill (Clear)</div></div>
+              <div class="price-val">$45 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic Full Set w/ Gel Polish</div></div>
+              <div class="price-val">$53 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Liquid Gel Full Set w/ Gel Polish</div></div>
+              <div class="price-val">$70 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic Fill w/ Gel Polish</div></div>
+              <div class="price-val">$43 &amp; Up</div>
+            </div>
+          </div>
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Liquid Gel Fill w/ Gel Polish</div></div>
+              <div class="price-val">$56 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Pink &amp; White Full Set</div></div>
+              <div class="price-val">$67 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Pink &amp; White Fill</div></div>
+              <div class="price-val">$55 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Pink Fill</div></div>
+              <div class="price-val">$42 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Custom Nail Shape</div></div>
+              <div class="price-val">$5 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Length</div></div>
+              <div class="price-val">$5 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Nail Repair</div></div>
+              <div class="price-val">$5 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Cuticle Trimming</div></div>
+              <div class="price-val">$10</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ADDITIONAL -->
+      <div class="price-panel" id="tab-additional">
+        <div class="price-two-col">
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">French Design</div></div>
+              <div class="price-val">$6 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Almond French</div></div>
+              <div class="price-val">$10 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Nail Art Design</div></div>
+              <div class="price-val">$6 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info">
+                <div class="price-row-name">Ombre</div>
+                <div class="price-row-note">With basic manicure +$8</div>
+              </div>
+              <div class="price-val">$15</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Chrome</div></div>
+              <div class="price-val">$15 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Cat Eye Design</div></div>
+              <div class="price-val">$15 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Matte Top Coat</div></div>
+              <div class="price-val">$5</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic Removal</div></div>
+              <div class="price-val">$15+</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Dip Removal</div></div>
+              <div class="price-val">$15+</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Gel Removal</div></div>
+              <div class="price-val">$12+</div>
+            </div>
+          </div>
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic on 1 Toe</div></div>
+              <div class="price-val">$8+</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Acrylic Fill on 2 Toes</div></div>
+              <div class="price-val">$10+</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Polish Change (Hands)</div></div>
+              <div class="price-val">$15</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Polish Change (Feet)</div></div>
+              <div class="price-val">$18</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Gel Polish Change (Hands)</div></div>
+              <div class="price-val">$28</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Gel Polish Change (Feet)</div></div>
+              <div class="price-val">$34</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Add Clear Gel</div></div>
+              <div class="price-val">$13</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Shine Buff</div></div>
+              <div class="price-val">$5</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Cut Down</div></div>
+              <div class="price-val">$2</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Paraffin Treatment</div></div>
+              <div class="price-val">$14</div>
+            </div>
+          </div>
+        </div>
+        <div class="price-note-final">ALL SERVICES ARE FINAL · NO REFUNDS</div>
+      </div>
+
+      <!-- WAXING -->
+      <div class="price-panel" id="tab-waxing">
+        <div class="price-two-col">
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Eyebrows</div></div>
+              <div class="price-val">$14</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Eyebrow Tweezing</div></div>
+              <div class="price-val">$20</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Upper Lip</div></div>
+              <div class="price-val">$12</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Chin</div></div>
+              <div class="price-val">$14 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Side Burns</div></div>
+              <div class="price-val">$15 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Full Face</div></div>
+              <div class="price-val">$45 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Half Arms</div></div>
+              <div class="price-val">$30 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Full Arms</div></div>
+              <div class="price-val">$45 &amp; Up</div>
+            </div>
+          </div>
+          <div class="price-rows">
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Under Arms</div></div>
+              <div class="price-val">$22 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Half Legs</div></div>
+              <div class="price-val">$40 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Full Legs</div></div>
+              <div class="price-val">$55 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Back</div></div>
+              <div class="price-val">$55 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Chest</div></div>
+              <div class="price-val">$55 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Bikini Line</div></div>
+              <div class="price-val">$35 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Brazilian</div></div>
+              <div class="price-val">$55 &amp; Up</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Ear</div></div>
+              <div class="price-val">$20</div>
+            </div>
+            <div class="price-row">
+              <div class="price-row-info"><div class="price-row-name">Nose</div></div>
+              <div class="price-val">$20</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /price-tabs-wrap -->
+
+    <div style="text-align:center;margin-top:3rem;" class="reveal">
+      <a href="tel:9545630616" class="btn-gold">Book a Service →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     WHY CHOOSE US
+──────────────────────────────────────────── -->
+<section id="why" class="section-pad">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <span class="tag-line reveal" style="color:#d9be85;">Why NAIL MARK</span>
+      <div class="section-rule mx reveal d1" style="background:rgba(201,169,97,.45);"></div>
+      <h2 class="heading reveal d2" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:400;color:#fff;line-height:1.15;">
+        The <em style="color:#d9be85;">NAIL MARK</em> Difference
+      </h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal d1">
+        <span class="why-icon">🧴</span>
+        <div class="why-title">Clean &amp; Hygienic</div>
+        <p class="why-desc">We maintain the highest sanitation standards — sterilized tools, single-use files, and hospital-grade disinfection for every client, every time.</p>
+      </div>
+      <div class="why-card reveal d2">
+        <span class="why-icon">👑</span>
+        <div class="why-title">Experienced Technicians</div>
+        <p class="why-desc">Our certified nail artists bring years of expertise and ongoing training, consistently delivering results that exceed your expectations.</p>
+      </div>
+      <div class="why-card reveal d3">
+        <span class="why-icon">✨</span>
+        <div class="why-title">Luxury Experience</div>
+        <p class="why-desc">From the moment you walk in, enjoy a premium spa-like atmosphere with complimentary beverages and fully personalized service.</p>
+      </div>
+      <div class="why-card reveal d4">
+        <span class="why-icon">💄</span>
+        <div class="why-title">Premium Products</div>
+        <p class="why-desc">We exclusively use top-tier professional brands — OPI, CND, Zoya, and more — for longer-lasting, healthier, more vibrant nails.</p>
+      </div>
+      <div class="why-card reveal d5">
+        <span class="why-icon">🌿</span>
+        <div class="why-title">Relaxing Atmosphere</div>
+        <p class="why-desc">Unwind in our serene, beautifully curated space — ambient lighting, soothing music, and a calming ambiance designed for total relaxation.</p>
+      </div>
+      <div class="why-card reveal d6">
+        <span class="why-icon">🎨</span>
+        <div class="why-title">Trendy Nail Designs</div>
+        <p class="why-desc">Always on-trend — from glass nails and chrome finishes to intricate 3D art, we bring the latest nail aesthetics to Fort Lauderdale.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     GALLERY
+──────────────────────────────────────────── -->
+<section id="gallery" class="section-pad">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <span class="tag-line reveal">Our Work</span>
+      <div class="section-rule mx reveal d1"></div>
+      <h2 class="heading reveal d2" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;">
+        Beauty in <em style="color:#c9a961;">Every Detail</em>
+      </h2>
+      <p class="reveal d3" style="color:#7a7a7a;font-size:.875rem;margin-top:.75rem;">
+        A glimpse into the artistry and elegance we create every day.
+      </p>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop" alt="Luxury nail art design" loading="lazy" />
+        <div class="g-overlay"><div class="g-plus">+</div></div>
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1604922824961-4a7bba1fe1f3?w=600&q=80&auto=format&fit=crop" alt="Gel manicure close up" loading="lazy" />
+        <div class="g-overlay"><div class="g-plus">+</div></div>
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80&auto=format&fit=crop" alt="Nail art design" loading="lazy" />
+        <div class="g-overlay"><div class="g-plus">+</div></div>
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop" alt="Nail salon interior" loading="lazy" />
+        <div class="g-overlay"><div class="g-plus">+</div></div>
+      </div>
+      <div class="g-item">
+        <img src="https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?w=800&q=80&auto=format&fit=crop" alt="Luxury pedicure spa" loading="lazy" />
+        <div class="g-overlay"><div class="g-plus">+</div></div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:2.5rem;" class="reveal">
+      <p style="font-size:.78rem;color:#9a9a9a;margin-bottom:1rem;">Follow us for daily nail inspiration</p>
+      <a href="#" class="btn-gold" style="background:#1a1a1a;">@nailmark.ftl →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     TESTIMONIALS
+──────────────────────────────────────────── -->
+<section id="testimonials" class="section-pad" style="background:#fff;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <span class="tag-line reveal">Happy Clients</span>
+      <div class="section-rule mx reveal d1"></div>
+      <h2 class="heading reveal d2" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;">
+        What Our Clients <em style="color:#c9a961;">Say</em>
+      </h2>
+    </div>
+
+    <div class="testi-carousel-wrap reveal">
+      <button class="testi-arrow testi-prev" id="tPrev" aria-label="Previous testimonials">&#8592;</button>
+      <button class="testi-arrow testi-next" id="tNext" aria-label="Next testimonials">&#8594;</button>
+
+      <div class="testi-track-outer" id="tOuter">
+        <div class="testi-track" id="tTrack">
+
+          <!-- 1 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">Absolutely the best nail salon in Fort Lauderdale! The technicians are incredibly talented and the ambiance is just gorgeous. My gel manicure lasted over 3 weeks without a single chip. I won't go anywhere else!</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Sarah M." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Sarah M.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 2 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">NAIL MARK is a true luxury experience. The staff remembers my preferences every visit and always makes me feel so welcome and pampered. The quality is consistently impeccable — a hidden gem in Fort Lauderdale.</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jennifer L." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Jennifer L.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 3 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">I came in for dip powder nails and the result was absolutely stunning. The salon is spotlessly clean, the products are top notch, and the custom nail art they did was beyond anything I imagined. 10/10!</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Maria C." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Maria C.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 4 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">I've been coming here for six months and every single visit is perfection. The attention to detail on my nail art is unreal — people stop me constantly to ask where I get my nails done. Worth every penny!</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ashley R." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Ashley R.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 5 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">The spa pedicure here is unlike anything I've experienced before. Hot stone massage, paraffin wax, the works. I left feeling completely rejuvenated. This is now my go-to self-care spot in Fort Lauderdale.</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/58.jpg" alt="Diana K." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Diana K.</div><div class="testi-source">⭐ Yelp Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 6 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">Brought my mom here for her birthday and we both got the full mani-pedi treatment. The staff made us feel like VIPs from start to finish. The salon is beautiful, spotless, and so relaxing. We'll be back!</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/77.jpg" alt="Priya S." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Priya S.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 7 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">My acrylic set looks so natural and elegant — not overdone at all. They really listened to exactly what I wanted. The technician was so skilled and patient. This is genuinely the best nail experience I've ever had.</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/21.jpg" alt="Camille T." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Camille T.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 8 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">I was nervous trying a new nail salon but NAIL MARK completely won me over. The hygiene standards are impeccable — everything is sterilized right in front of you. I felt safe and so well taken care of.</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/36.jpg" alt="Lauren H." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Lauren H.</div><div class="testi-source">⭐ Yelp Review · Verified</div></div>
+            </div>
+          </div>
+
+          <!-- 9 -->
+          <div class="testi-card">
+            <div class="testi-quote">"</div>
+            <div class="stars">★★★★★</div>
+            <p class="testi-text">The chrome powder nail art they did for my wedding was absolutely breathtaking. Every bridesmaid was obsessed. NAIL MARK made our special day even more perfect. I can't recommend them highly enough!</p>
+            <div class="testi-author">
+              <img src="https://randomuser.me/api/portraits/women/90.jpg" alt="Natalie B." class="testi-avatar" loading="lazy" />
+              <div><div class="testi-name">Natalie B.</div><div class="testi-source">⭐ Google Review · Verified</div></div>
+            </div>
+          </div>
+
+        </div><!-- /track -->
+      </div><!-- /outer -->
+
+      <div class="testi-dots" id="tDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     LOCATION & HOURS
+──────────────────────────────────────────── -->
+<section id="location" class="section-pad">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3.5rem;">
+      <span class="tag-line reveal">Find Us</span>
+      <div class="section-rule mx reveal d1"></div>
+      <h2 class="heading reveal d2" style="font-size:clamp(2rem,3.5vw,3rem);font-weight:400;line-height:1.15;">
+        Visit <em style="color:#c9a961;">NAIL MARK</em>
+      </h2>
+    </div>
+
+    <div class="loc-grid">
+      <!-- Map + contact -->
+      <div class="reveal from-left">
+        <div class="map-wrap">
+          <iframe
+            src="https://maps.google.com/maps?q=3200+N+Federal+Hwy+Suite+201+Fort+Lauderdale+FL+33306&output=embed&z=15"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="NAIL MARK on Google Maps">
+          </iframe>
+        </div>
+
+        <div style="margin-top:1.75rem;display:flex;flex-direction:column;gap:.75rem;">
+          <div class="contact-row">
+            <span class="contact-icon">📍</span>
+            <div>
+              <strong style="font-size:.88rem;display:block;margin-bottom:.2rem;">NAIL MARK at Coral Ridge Mall</strong>
+              <span style="font-size:.82rem;color:#7a7a7a;">3200 N Federal Hwy Suite 201<br>Fort Lauderdale, FL 33306</span>
+            </div>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">📞</span>
+            <a href="tel:9545630616" style="font-size:.88rem;color:#1a1a1a;font-weight:500;text-decoration:none;">(954) 563-0616</a>
+          </div>
+          <div class="contact-row">
+            <span class="contact-icon">🌐</span>
+            <a href="https://mybestsalons.com" target="_blank" rel="noopener noreferrer" style="font-size:.82rem;color:#7a7a7a;text-decoration:none;">mybestsalons.com</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hours + gift card -->
+      <div class="reveal from-right d2">
+        <div class="hours-card">
+          <div class="hours-title">Business Hours</div>
+          <div class="hours-row"><span class="hours-day">Monday</span>    <span class="hours-time">10:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Tuesday</span>   <span class="hours-time">10:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Wednesday</span> <span class="hours-time">10:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Thursday</span>  <span class="hours-time">10:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Friday</span>    <span class="hours-time">10:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Saturday</span>  <span class="hours-time">10:00 AM – 7:00 PM</span></div>
+          <div class="hours-row"><span class="hours-day">Sunday</span>    <span class="hours-time">11:00 AM – 5:00 PM</span></div>
+
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(201,169,97,.18);">
+            <a href="tel:9545630616" class="btn-gold" style="display:block;text-align:center;width:100%;">
+              📞 Call to Book: (954) 563-0616
+            </a>
+          </div>
+        </div>
+
+        <div class="gift-strip">
+          <div class="tag-line" style="margin-bottom:.4rem;">Special Offer</div>
+          <div class="heading" style="font-size:1.3rem;color:#fff;margin-bottom:.45rem;">Gift Cards Available</div>
+          <p style="font-size:.78rem;color:rgba(255,255,255,.48);line-height:1.75;margin-bottom:.85rem;">
+            Give the gift of luxury. Perfect for birthdays, anniversaries, and every special occasion.
+          </p>
+          <a href="tel:9545630616" style="font-size:.72rem;color:#c9a961;text-decoration:none;font-weight:600;letter-spacing:.12em;">INQUIRE NOW →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     FINAL CTA
+──────────────────────────────────────────── -->
+<section id="cta" class="section-pad">
+  <div class="container" style="position:relative;z-index:10;">
+    <span class="tag-line reveal" style="color:#d9be85;">Ready?</span>
+    <h2 class="reveal d1">
+      Ready for Your Next<br><em>Nail Appointment?</em>
+    </h2>
+    <p class="reveal d2" style="margin-top:.75rem;">
+      Book your visit today and experience the NAIL MARK difference.<br>
+      Your dream nails are just one call away.
+    </p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;" class="reveal d3">
+      <a href="tel:9545630616" class="btn-gold-dark">Book Appointment</a>
+      <a href="tel:9545630616" class="btn-ghost-light">Call Salon: (954) 563-0616</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────
+     FOOTER
+──────────────────────────────────────────── -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-brand">NAIL<span>&nbsp;MARK</span></div>
+      <p class="footer-desc">Fort Lauderdale's premier luxury nail studio at Coral Ridge Mall.<br>Where every detail matters and every client is treated like royalty.</p>
+      <div class="social-row">
+        <a href="#" class="soc-btn" aria-label="Instagram">📸</a>
+        <a href="#" class="soc-btn" aria-label="Facebook">📘</a>
+        <a href="#" class="soc-btn" aria-label="TikTok">🎵</a>
+        <a href="#" class="soc-btn" aria-label="Pinterest">📌</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <p>© 2025 NAIL MARK · 3200 N Federal Hwy Suite 201, Fort Lauderdale, FL 33306 · <a href="tel:9545630616">(954) 563-0616</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ────────────────────────────────────────────
+     DESKTOP FLOATING SOCIAL SIDEBAR (posh style)
+──────────────────────────────────────────── -->
+<div id="float-social" aria-label="Quick contact">
+
+  <!-- Instagram -->
+  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="fs-btn" aria-label="Instagram">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    <span class="fs-tip">Instagram</span>
+  </a>
+
+  <!-- Facebook -->
+  <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="fs-btn" aria-label="Facebook">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    <span class="fs-tip">Facebook</span>
+  </a>
+
+  <!-- Call -->
+  <a href="tel:9545630616" class="fs-btn" aria-label="Call Now">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+    <span class="fs-tip">Call Now</span>
+  </a>
+
+  <!-- Book -->
+  <a href="tel:9545630616" class="fs-btn" aria-label="Book Now">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+    <span class="fs-tip">Book Now</span>
+  </a>
+
+</div>
+
+<!-- ────────────────────────────────────────────
+     MOBILE FLOATING BAR (posh style)
+──────────────────────────────────────────── -->
+<div id="mobile-float" aria-label="Quick actions">
+  <div class="mf-inner">
+
+    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="mf-btn" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+      <span class="mf-label">Instagram</span>
+    </a>
+
+    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="mf-btn" aria-label="Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      <span class="mf-label">Facebook</span>
+    </a>
+
+    <a href="tel:9545630616" class="mf-btn" aria-label="Call Now">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+      <span class="mf-label">Call</span>
+    </a>
+
+    <a href="tel:9545630616" class="mf-btn" aria-label="Book Now">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+      <span class="mf-label">Book</span>
+    </a>
+
+  </div>
+</div>
+
+<!-- ────────────────────────────────────────────
+     JAVASCRIPT
+──────────────────────────────────────────── -->
+<script>
+  /* ── Navbar scroll ── */
+  const navbar = document.getElementById('navbar');
+  const heroBg = document.getElementById('hero-bg');
+  let ticking = false;
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        // Navbar state
+        navbar.classList.toggle('scrolled', y > 60);
+        // Parallax hero (only while hero visible)
+        if (heroBg && y < window.innerHeight) {
+          heroBg.style.transform = `scale(1.1) translateY(${y * 0.28}px)`;
+        }
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+
+  /* ── Scroll reveal (Intersection Observer) ── */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  /* ── Mobile menu ── */
+  const hamburger = document.getElementById('hamburger-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose  = document.getElementById('menu-close');
+
+  function openMenu() {
+    mobileMenu.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    hamburger.setAttribute('aria-expanded', 'true');
+  }
+  function closeMenu() {
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow = '';
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+
+  hamburger.addEventListener('click', openMenu);
+  menuClose.addEventListener('click', closeMenu);
+  document.querySelectorAll('.mm-link').forEach(l => l.addEventListener('click', closeMenu));
+
+  // Close on Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+
+  /* ── Smooth scroll for anchor links ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href');
+      if (id === '#') return;
+      const target = document.querySelector(id);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  /* ── Highlight today's hours ── */
+  (function highlightToday() {
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const today = days[new Date().getDay()];
+    document.querySelectorAll('.hours-day').forEach(el => {
+      if (el.textContent.trim() === today) {
+        el.style.color = '#c9a961';
+        el.style.fontWeight = '600';
+        const timeEl = el.nextElementSibling;
+        if (timeEl) timeEl.classList.add('today');
+      }
+    });
+  })();
+
+  /* ── Price Menu Tabs ── */
+  (function initTabs() {
+    const tabs   = document.querySelectorAll('.ptab');
+    const panels = document.querySelectorAll('.price-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+  })();
+
+  /* ── Testimonials Carousel ── */
+  (function initCarousel() {
+    const track  = document.getElementById('tTrack');
+    const outer  = document.getElementById('tOuter');
+    const prev   = document.getElementById('tPrev');
+    const next   = document.getElementById('tNext');
+    const dotsEl = document.getElementById('tDots');
+    if (!track) return;
+
+    const cards = Array.from(track.children);
+    const total = cards.length;
+    let current = 0;
+    let startX = 0, isDragging = false, dragDelta = 0;
+
+    // How many cards visible based on viewport
+    function perPage() {
+      if (window.innerWidth <= 580) return 1;
+      if (window.innerWidth <= 900) return 2;
+      return 3;
+    }
+
+    function maxIndex() { return total - perPage(); }
+
+    // Build dots
+    function buildDots() {
+      dotsEl.innerHTML = '';
+      const count = maxIndex() + 1;
+      for (let i = 0; i < count; i++) {
+        const d = document.createElement('button');
+        d.className = 'testi-dot' + (i === current ? ' active' : '');
+        d.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        d.addEventListener('click', () => goTo(i));
+        dotsEl.appendChild(d);
+      }
+    }
+
+    function goTo(idx) {
+      current = Math.max(0, Math.min(idx, maxIndex()));
+      const cardW = cards[0].offsetWidth + 24; // 24 = gap (1.5rem)
+      track.style.transform = `translateX(-${current * cardW}px)`;
+      dotsEl.querySelectorAll('.testi-dot').forEach((d, i) =>
+        d.classList.toggle('active', i === current)
+      );
+      prev.style.opacity = current === 0 ? '.35' : '1';
+      next.style.opacity = current >= maxIndex() ? '.35' : '1';
+    }
+
+    prev.addEventListener('click', () => goTo(current - 1));
+    next.addEventListener('click', () => goTo(current + 1));
+
+    // Drag / swipe support
+    outer.addEventListener('mousedown',  e => { isDragging = true; startX = e.clientX; track.style.transition = 'none'; });
+    outer.addEventListener('mousemove',  e => { if (!isDragging) return; dragDelta = e.clientX - startX; });
+    outer.addEventListener('mouseup',    () => endDrag());
+    outer.addEventListener('mouseleave', () => { if (isDragging) endDrag(); });
+
+    outer.addEventListener('touchstart', e => { startX = e.touches[0].clientX; track.style.transition = 'none'; }, { passive: true });
+    outer.addEventListener('touchmove',  e => { dragDelta = e.touches[0].clientX - startX; }, { passive: true });
+    outer.addEventListener('touchend',   () => endDrag());
+
+    function endDrag() {
+      isDragging = false;
+      track.style.transition = '';
+      if (dragDelta < -50) goTo(current + 1);
+      else if (dragDelta > 50) goTo(current - 1);
+      else goTo(current); // snap back
+      dragDelta = 0;
+    }
+
+    // Auto-play (pauses on hover)
+    let autoTimer = setInterval(() => goTo(current >= maxIndex() ? 0 : current + 1), 4500);
+    outer.addEventListener('mouseenter', () => clearInterval(autoTimer));
+    outer.addEventListener('mouseleave', () => {
+      autoTimer = setInterval(() => goTo(current >= maxIndex() ? 0 : current + 1), 4500);
+    });
+
+    // Rebuild on resize
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => { buildDots(); goTo(0); }, 200);
+    });
+
+    buildDots();
+    goTo(0);
+  })();
+
+  /* ── Hide mobile float when scrolled to very top ── */
+  const mf = document.getElementById('mobile-float');
+  window.addEventListener('scroll', () => {
+    if (mf) mf.style.opacity = window.scrollY < 100 ? '0' : '1';
+  }, { passive: true });
+</script>
+</body>
+</html>
