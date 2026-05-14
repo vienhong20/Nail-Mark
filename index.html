@@ -522,6 +522,63 @@
     .footer-bottom { padding: 1.1rem 1.5rem; text-align: center; font-size: .68rem; color: rgba(255,255,255,.25); border-top: 1px solid rgba(255,255,255,.04); }
     .footer-bottom a { color: #c9a961; text-decoration: none; }
 
+    /* ── Coming Soon Modal ── */
+    #booking-modal {
+      position: fixed; inset: 0; z-index: 9999;
+      display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+      opacity: 0; pointer-events: none; transition: opacity .3s ease;
+    }
+    #booking-modal.open { opacity: 1; pointer-events: all; }
+
+    .modal-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(26,26,26,.65); backdrop-filter: blur(6px);
+    }
+    .modal-box {
+      position: relative; z-index: 1;
+      background: #fff; max-width: 420px; width: 100%;
+      padding: 3rem 2.5rem 2.5rem; text-align: center;
+      box-shadow: 0 32px 80px rgba(0,0,0,.2);
+      transform: translateY(24px) scale(.97);
+      transition: transform .35s cubic-bezier(.22,1,.36,1);
+    }
+    #booking-modal.open .modal-box { transform: translateY(0) scale(1); }
+
+    .modal-close {
+      position: absolute; top: 1rem; right: 1.1rem;
+      background: none; border: none; font-size: 1.4rem; cursor: pointer;
+      color: #aaa; line-height: 1; transition: color .2s;
+    }
+    .modal-close:hover { color: #1a1a1a; }
+    .modal-icon { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+    .modal-tag {
+      font-size: .65rem; font-weight: 700; letter-spacing: .3em;
+      text-transform: uppercase; color: #c9a961; margin-bottom: .6rem; display: block;
+    }
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 2.2rem;
+      font-weight: 400; color: #1a1a1a; margin-bottom: .75rem; line-height: 1.1;
+    }
+    .modal-desc {
+      font-size: .85rem; color: #7a7a7a; line-height: 1.75; margin-bottom: 2rem;
+    }
+    .modal-call {
+      display: block; background: #c9a961; color: #fff;
+      padding: .9rem 1.5rem; text-decoration: none;
+      font-size: .75rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase;
+      transition: background .25s, transform .2s;
+    }
+    .modal-call:hover { background: #1a1a1a; transform: translateY(-2px); }
+    .modal-or {
+      font-size: .72rem; color: #bbb; margin: 1rem 0; display: block;
+    }
+    .modal-dismiss {
+      background: none; border: none; font-size: .75rem; color: #aaa;
+      cursor: pointer; letter-spacing: .1em; text-transform: uppercase;
+      transition: color .2s;
+    }
+    .modal-dismiss:hover { color: #1a1a1a; }
+
     /* ── Floating Social Sidebar (desktop — posh style) ── */
     #float-social {
       position: fixed; right: 0; top: 50%; transform: translateY(-50%);
@@ -629,7 +686,7 @@
       <a href="#gallery"      role="listitem">Gallery</a>
       <a href="#testimonials" role="listitem">Testimonials</a>
       <a href="#location"     role="listitem">Location</a>
-      <a href="tel:9545630616" class="nav-cta" role="listitem">Book Now</a>
+      <a href="#" class="nav-cta" role="listitem" onclick="openBooking(event)">Book Now</a>
     </div>
 
     <button class="hamburger" id="hamburger-btn" aria-label="Open menu" aria-expanded="false">
@@ -666,7 +723,7 @@
       Located at Coral Ridge Mall — where elegance meets artistry.
     </p>
     <div class="hero-btns h-anim h-a4">
-      <a href="tel:9545630616" class="btn-gold">Book Appointment</a>
+      <a href="#" class="btn-gold" onclick="openBooking(event)">Book Appointment</a>
       <a href="tel:9545630616" class="btn-ghost">📞 Call Now</a>
     </div>
   </div>
@@ -1218,7 +1275,7 @@
     </div><!-- /price-tabs-wrap -->
 
     <div style="text-align:center;margin-top:3rem;" class="reveal">
-      <a href="tel:9545630616" class="btn-gold">Book a Service →</a>
+      <a href="#" class="btn-gold" onclick="openBooking(event)">Book a Service →</a>
     </div>
   </div>
 </section>
@@ -1534,7 +1591,7 @@
       Your dream nails are just one call away.
     </p>
     <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.5rem;" class="reveal d3">
-      <a href="tel:9545630616" class="btn-gold-dark">Book Appointment</a>
+      <a href="#" class="btn-gold-dark" onclick="openBooking(event)">Book Appointment</a>
       <a href="tel:9545630616" class="btn-ghost-light">Call Salon: (954) 563-0616</a>
     </div>
   </div>
@@ -1565,6 +1622,26 @@
 </footer>
 
 <!-- ────────────────────────────────────────────
+     COMING SOON BOOKING MODAL
+──────────────────────────────────────────── -->
+<div id="booking-modal" role="dialog" aria-modal="true" aria-label="Booking coming soon">
+  <div class="modal-backdrop" id="modal-backdrop"></div>
+  <div class="modal-box">
+    <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    <span class="modal-icon">📅</span>
+    <span class="modal-tag">Online Booking</span>
+    <h2 class="modal-title">Coming Soon</h2>
+    <p class="modal-desc">
+      Our online booking system is on its way!<br>
+      In the meantime, give us a call to schedule your appointment.
+    </p>
+    <a href="tel:9545630616" class="modal-call">📞 Call (954) 563-0616</a>
+    <span class="modal-or">— or —</span>
+    <button class="modal-dismiss" id="modal-dismiss">Maybe Later</button>
+  </div>
+</div>
+
+<!-- ────────────────────────────────────────────
      DESKTOP FLOATING SOCIAL SIDEBAR (posh style)
 ──────────────────────────────────────────── -->
 <div id="float-social" aria-label="Quick contact">
@@ -1588,7 +1665,7 @@
   </a>
 
   <!-- Book -->
-  <a href="tel:9545630616" class="fs-btn" aria-label="Book Now">
+  <a href="#" class="fs-btn" aria-label="Book Now" onclick="openBooking(event)">
     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
     <span class="fs-tip">Book Now</span>
   </a>
@@ -1616,7 +1693,7 @@
       <span class="mf-label">Call</span>
     </a>
 
-    <a href="tel:9545630616" class="mf-btn" aria-label="Book Now">
+    <a href="#" class="mf-btn" aria-label="Book Now" onclick="openBooking(event)">
       <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
       <span class="mf-label">Book</span>
     </a>
@@ -1710,6 +1787,25 @@
       }
     });
   })();
+
+  /* ── Booking Modal ── */
+  const bookingModal = document.getElementById('booking-modal');
+
+  function openBooking(e) {
+    if (e) e.preventDefault();
+    bookingModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeBooking() {
+    bookingModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('modal-close').addEventListener('click', closeBooking);
+  document.getElementById('modal-dismiss').addEventListener('click', closeBooking);
+  document.getElementById('modal-backdrop').addEventListener('click', closeBooking);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBooking(); });
 
   /* ── Price Menu Tabs ── */
   (function initTabs() {
