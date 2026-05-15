@@ -123,11 +123,14 @@
     }
     .nav-inner { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; }
     .nav-logo { text-decoration: none; display: flex; align-items: center; }
-    .nav-logo img { height: 52px; width: auto; transition: filter .4s; }
+    .nav-logo img { height: 52px; width: auto; }
 
-    #navbar:not(.scrolled) .nav-logo img { filter: drop-shadow(0 1px 3px rgba(0,0,0,.5)); }
-    /* Scrolled white navbar → original colours */
-    #navbar.scrolled .nav-logo img { filter: none; }
+    /* Dark bg (transparent nav) → show dark-mode logo (white MARK + gold Nail) */
+    .logo-light      { display: none;  }
+    .logo-dark-ver   { display: block; }
+    /* Scrolled white nav → show original logo */
+    #navbar.scrolled .logo-light    { display: block; }
+    #navbar.scrolled .logo-dark-ver { display: none;  }
     .nav-links { display: flex; gap: 2.25rem; align-items: center; }
     .nav-links a {
       font-size: .72rem; font-weight: 500; letter-spacing: .15em; text-transform: uppercase;
@@ -723,7 +726,8 @@
 <nav id="navbar" aria-label="Main navigation">
   <div class="nav-inner">
     <a href="#" class="nav-logo" aria-label="NAIL MARK Home">
-      <img src="logo.svg" alt="NAIL MARK Nail Salon &amp; Spa" />
+      <img src="logo-dark.svg" alt="NAIL MARK" class="logo-dark-ver" />
+      <img src="logo.svg"      alt="NAIL MARK" class="logo-light" />
     </a>
 
     <div class="nav-links" role="list">
@@ -1617,7 +1621,7 @@
   <div class="footer-top">
     <div class="container">
       <div class="footer-brand">
-        <img src="logo.svg" alt="NAIL MARK" style="height:72px;width:auto;" />
+        <img src="logo-dark.svg" alt="NAIL MARK" style="height:72px;width:auto;" />
       </div>
       <p class="footer-desc">Fort Lauderdale's premier luxury nail studio at Coral Ridge Mall.<br>Where every detail matters and every client is treated like royalty.</p>
       <div class="social-row">
