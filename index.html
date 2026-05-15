@@ -429,13 +429,41 @@
     .spc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; }
     .spc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: #1a1a1a; line-height: 1.2; }
     .spc-desc { font-size: .75rem; color: #9a9a9a; line-height: 1.55; margin-top: .2rem; }
-    .spc-price-wrap { text-align: right; flex-shrink: 0; }
+    .spc-price-wrap { text-align: right; flex-shrink: 0; min-width: 80px; }
     .spc-total {
       font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600;
       line-height: 1; color: #1a1a1a; transition: color .25s;
     }
     .spc-total.has-addon { color: #c9a961; }
-    .spc-base-note { font-size: .6rem; color: #aaa; margin-top: .2rem; }
+    .spc-base-note { font-size: .6rem; color: #aaa; margin-top: .15rem; }
+
+    /* Dual pricing */
+    .spc-card-price {
+      display: flex; align-items: center; justify-content: flex-end; gap: .25rem;
+      font-size: .7rem; font-weight: 700; color: #9a9a9a;
+      margin-top: .3rem; transition: color .25s;
+    }
+    .spc-card-price svg { flex-shrink: 0; }
+    .spc-card-price.has-addon { color: #c9a961; }
+
+    /* Payment mode badge */
+    .payment-toggle {
+      display: inline-flex; align-items: center; gap: 0;
+      background: #f5f5f5; border-radius: 6px; padding: 3px;
+      margin: 0 auto 1.5rem; border: 1px solid #e8dcc8;
+    }
+    .pay-btn {
+      background: none; border: none; cursor: pointer;
+      font-size: .65rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      padding: .4rem .9rem; border-radius: 4px; color: #aaa; transition: all .2s;
+    }
+    .pay-btn.active { background: #1a1a1a; color: #fff; }
+    .pay-btn.card.active { background: #c9a961; }
+    .dual-price-note {
+      font-size: .72rem; color: #9a9a9a; text-align: center;
+      margin-bottom: 1.5rem; line-height: 1.6;
+    }
+    .dual-price-note strong { color: #c9a961; }
 
     /* Add-on pills */
     .spc-addons { display: flex; flex-wrap: wrap; gap: .4rem; }
@@ -877,6 +905,17 @@
           Full Services &amp; <em style="color:#c9a961;">Pricing</em>
         </h3>
         <p style="font-size:.8rem;color:#9a9a9a;margin-top:.6rem;">Tap any add-on pill to see your total update instantly.</p>
+      </div>
+
+      <!-- Payment mode toggle -->
+      <div style="text-align:center;">
+        <div class="payment-toggle" id="payToggle">
+          <button class="pay-btn cash active" id="payBtnCash">💵 Cash</button>
+          <button class="pay-btn card"        id="payBtnCard">💳 Card +2%</button>
+        </div>
+        <p class="dual-price-note">
+          Cash price shown. Switch to <strong>Card</strong> to see the 2% processing fee applied.
+        </p>
       </div>
 
       <!-- 4 TABS -->
@@ -1781,7 +1820,17 @@
 
   /* ── Price Menu: tabs + interactive add-on pills ── */
   (function initPricing() {
-    /* Tab switching */
+    let isCard = false;
+
+    /* ── Card price helper: cash × 1.02, rounded to nearest $0.50 ── */
+    function cardPrice(cash) {
+      return Math.round(cash * 1.02 * 2) / 2;
+    }
+    function fmt(n) {
+      return n % 1 === 0 ? '$' + n : '$' + n.toFixed(2);
+    }
+
+    /* ── Tab switching ── */
     const tabs   = document.querySelectorAll('.ptab');
     const panels = document.querySelectorAll('.price-panel');
     tabs.forEach(tab => {
@@ -1793,25 +1842,75 @@
       });
     });
 
-    /* Add-on pills: toggle + live price recalc */
+    /* ── Build card elements + add-on logic ── */
+    const recalcFns = [];
+
     document.querySelectorAll('.svc-price-card').forEach(card => {
       const base  = parseInt(card.dataset.base, 10);
       const total = card.querySelector('.spc-total');
       const note  = card.querySelector('.spc-base-note');
       const pills = card.querySelectorAll('.addon-pill');
 
+      /* Inject card-price row once */
+      const cardRow = document.createElement('div');
+      cardRow.className = 'spc-card-price';
+      cardRow.innerHTML =
+        '<svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor">' +
+        '<path d="M20 4H4c-1.11 0-2 .89-2 2v12c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>' +
+        '</svg><span class="card-val">' + fmt(cardPrice(base)) + '</span>';
+      total.parentNode.appendChild(cardRow);
+
+      const cardVal = cardRow.querySelector('.card-val');
+
       function recalc() {
         let extra = 0;
-        pills.forEach(p => { if (p.classList.contains('selected')) extra += parseInt(p.dataset.price, 10) || 0; });
-        total.textContent = '$' + (base + extra);
+        pills.forEach(p => {
+          if (p.classList.contains('selected')) extra += parseInt(p.dataset.price, 10) || 0;
+        });
+        const cashTotal = base + extra;
+        const cardTotal = cardPrice(cashTotal);
+
+        total.textContent = fmt(cashTotal);
         total.classList.toggle('has-addon', extra > 0);
-        if (note) note.textContent = extra > 0 ? '$' + base + ' + $' + extra + ' extras' : 'Starting at';
+
+        cardVal.textContent = fmt(cardTotal);
+        cardRow.classList.toggle('has-addon', extra > 0);
+
+        if (note) note.textContent = extra > 0
+          ? fmt(cashTotal) + ' cash · ' + fmt(cardTotal) + ' card'
+          : 'Starting at';
+
+        /* Dim/show card row based on current mode */
+        cardRow.style.display = isCard ? 'flex' : 'none';
       }
 
       pills.forEach(pill => {
         pill.addEventListener('click', () => { pill.classList.toggle('selected'); recalc(); });
       });
+
+      recalcFns.push(recalc);
+      recalc(); /* init */
     });
+
+    /* ── Payment toggle ── */
+    const btnCash = document.getElementById('payBtnCash');
+    const btnCard = document.getElementById('payBtnCard');
+    const note    = document.querySelector('.dual-price-note');
+
+    function setMode(card) {
+      isCard = card;
+      btnCash.classList.toggle('active', !card);
+      btnCard.classList.toggle('active',  card);
+      note.innerHTML = card
+        ? 'Showing <strong>Card prices (+2% fee)</strong>. Switch to <strong style="color:#1a1a1a">Cash</strong> to see cash prices.'
+        : 'Cash price shown. Switch to <strong>Card +2%</strong> to see the processing fee applied.';
+      recalcFns.forEach(fn => fn());
+    }
+
+    btnCash.addEventListener('click', () => setMode(false));
+    btnCard.addEventListener('click', () => setMode(true));
+
+    setMode(false); /* start on cash */
   })();
 
   /* ── Testimonials Carousel ── */
