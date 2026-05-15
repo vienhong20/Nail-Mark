@@ -386,17 +386,23 @@
     }
     .testi-dot.active { background: #c9a961; transform: scale(1.3); }
 
-    /* ── Full Price Menu (tabs) ── */
+    /* ── Full Price Menu — 4-tab interactive ── */
     .price-tabs-wrap { margin-top: 4rem; }
+
     .price-tabs {
-      display: flex; flex-wrap: wrap; gap: .5rem;
-      margin-bottom: 2.5rem; border-bottom: 1px solid rgba(201,169,97,.18); padding-bottom: 0;
+      display: flex; overflow-x: auto; gap: 0;
+      border-bottom: 1px solid rgba(201,169,97,.2); margin-bottom: 2rem;
+      scrollbar-width: none; -ms-overflow-style: none;
     }
+    .price-tabs::-webkit-scrollbar { display: none; }
+
     .ptab {
       background: none; border: none; cursor: pointer;
-      font-family: 'Inter', sans-serif; font-size: .7rem; font-weight: 600;
-      letter-spacing: .14em; text-transform: uppercase; color: #9a9a9a;
-      padding: .65rem 1.1rem .85rem; position: relative; transition: color .3s;
+      font-family: 'Inter', sans-serif; font-size: .68rem; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase; color: #9a9a9a;
+      padding: .75rem 1.25rem 1rem; position: relative;
+      transition: color .25s; white-space: nowrap; flex-shrink: 0;
+      display: flex; align-items: center; gap: .4rem;
     }
     .ptab::after {
       content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 2px;
@@ -406,41 +412,51 @@
     .ptab.active::after { transform: scaleX(1); }
     .ptab:hover { color: #c9a961; }
 
+    /* Panels */
     .price-panel { display: none; }
-    .price-panel.active { display: block; }
+    .price-panel.active { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    @media (max-width: 640px) { .price-panel.active { grid-template-columns: 1fr; } }
 
-    .price-cat-title {
-      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 500;
-      color: #1a1a1a; margin-bottom: 1.25rem; padding-bottom: .75rem;
-      border-bottom: 1px solid rgba(201,169,97,.2);
+    /* Service card */
+    .svc-price-card {
+      background: #fff; border: 1px solid rgba(201,169,97,.16);
+      padding: 1.4rem 1.5rem 1.2rem; display: flex; flex-direction: column; gap: .85rem;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s;
+      border-top: 2.5px solid transparent;
     }
-    .price-rows { display: flex; flex-direction: column; }
-    .price-row {
-      display: flex; justify-content: space-between; align-items: baseline;
-      padding: .75rem 0; border-bottom: 1px solid rgba(0,0,0,.05);
-      gap: 1rem;
-    }
-    .price-row:last-child { border-bottom: none; }
-    .price-row-info { flex: 1; min-width: 0; }
-    .price-row-name { font-size: .875rem; font-weight: 500; color: #1a1a1a; }
-    .price-row-desc { font-size: .75rem; color: #9a9a9a; line-height: 1.6; margin-top: .2rem; }
-    .price-row-note { font-size: .72rem; color: #b8943f; margin-top: .15rem; }
-    .price-val { font-size: .875rem; font-weight: 600; color: #1a1a1a; white-space: nowrap; flex-shrink: 0; }
+    .svc-price-card:hover { transform: translateY(-3px); box-shadow: 0 12px 36px rgba(0,0,0,.08); border-top-color: #c9a961; }
 
-    .price-sub-section { margin-top: 2rem; }
-    .price-sub-title {
-      font-size: .65rem; font-weight: 600; letter-spacing: .25em; text-transform: uppercase;
-      color: #c9a961; margin-bottom: 1rem;
+    .spc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: .75rem; }
+    .spc-name { font-family: 'Cormorant Garamond', serif; font-size: 1.15rem; font-weight: 500; color: #1a1a1a; line-height: 1.2; }
+    .spc-desc { font-size: .75rem; color: #9a9a9a; line-height: 1.55; margin-top: .2rem; }
+    .spc-price-wrap { text-align: right; flex-shrink: 0; }
+    .spc-total {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600;
+      line-height: 1; color: #1a1a1a; transition: color .25s;
     }
+    .spc-total.has-addon { color: #c9a961; }
+    .spc-base-note { font-size: .6rem; color: #aaa; margin-top: .2rem; }
+
+    /* Add-on pills */
+    .spc-addons { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .addon-pill {
+      background: #fff; border: 1px solid #e8dcc8; color: #7a7a7a;
+      font-size: .65rem; font-weight: 600; letter-spacing: .06em;
+      padding: .3rem .7rem; border-radius: 999px; cursor: pointer;
+      transition: background .2s, border-color .2s, color .2s, transform .15s;
+      white-space: nowrap; user-select: none;
+    }
+    .addon-pill:hover { border-color: #c9a961; color: #c9a961; }
+    .addon-pill.selected {
+      background: #c9a961; border-color: #c9a961; color: #fff; transform: scale(1.05);
+    }
+    .addon-pill .pill-price { opacity: .75; margin-left: .2rem; }
+
     .price-note-final {
-      margin-top: 2rem; padding: 1rem 1.25rem;
+      grid-column: 1 / -1; margin-top: .5rem; padding: .9rem 1.25rem;
       background: #f5e6e0; border-left: 3px solid #c9a961;
-      font-size: .78rem; font-weight: 600; color: #1a1a1a; letter-spacing: .06em;
+      font-size: .75rem; font-weight: 700; color: #1a1a1a; letter-spacing: .08em;
     }
-
-    /* two-col price layout for wider panels */
-    .price-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0 3rem; }
-    @media (max-width: 640px) { .price-two-col { grid-template-columns: 1fr; } }
 
     /* ── Location ── */
     #location { background: #f5e6e0; }
@@ -860,416 +876,372 @@
         <h3 class="heading" style="font-size:clamp(1.6rem,2.8vw,2.4rem);font-weight:400;">
           Full Services &amp; <em style="color:#c9a961;">Pricing</em>
         </h3>
+        <p style="font-size:.8rem;color:#9a9a9a;margin-top:.6rem;">Tap any add-on pill to see your total update instantly.</p>
       </div>
 
+      <!-- 4 TABS -->
       <div class="price-tabs" role="tablist">
-        <button class="ptab active" role="tab" data-tab="manicures">Manicures</button>
-        <button class="ptab" role="tab" data-tab="pedicures">Pedicures</button>
-        <button class="ptab" role="tab" data-tab="kids">Kids</button>
-        <button class="ptab" role="tab" data-tab="dipping">Dipping Powder</button>
-        <button class="ptab" role="tab" data-tab="enhancements">Enhancements</button>
-        <button class="ptab" role="tab" data-tab="additional">Additional</button>
-        <button class="ptab" role="tab" data-tab="waxing">Waxing</button>
+        <button class="ptab active" role="tab" data-tab="mp">💅 Manicures &amp; Pedicures</button>
+        <button class="ptab" role="tab" data-tab="ne">💎 Nail Enhancements</button>
+        <button class="ptab" role="tab" data-tab="da">🎨 Designs &amp; Add-ons</button>
+        <button class="ptab" role="tab" data-tab="wx">🌿 Waxing</button>
       </div>
 
-      <!-- MANICURES -->
-      <div class="price-panel active" id="tab-manicures">
-        <div class="price-rows">
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Basic Manicure</div>
-              <div class="price-row-desc">Nail trimming &amp; shaping, cuticle grooming, lotion massage, and polish.</div>
-            </div>
-            <div class="price-val">$24</div>
+      <!-- TAB 1: Manicures & Pedicures -->
+      <div class="price-panel active" id="panel-mp">
+
+        <div class="svc-price-card" data-base="24">
+          <div class="spc-header">
+            <div><div class="spc-name">Basic Manicure</div><div class="spc-desc">Nail trim &amp; shape, cuticle care, lotion massage, polish.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$24</div></div>
           </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Shellac / Gel Manicure</div>
-              <div class="price-row-desc">Gel polish lasts two weeks or more. No smudge, no chip, no dry time.</div>
-              <div class="price-row-note">Soak-off gel +$2</div>
-            </div>
-            <div class="price-val">$38</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Deluxe Manicure</div>
-              <div class="price-row-desc">Extended hand massage, paraffin treatment, finished with a hot towel.</div>
-            </div>
-            <div class="price-val">$40</div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="14">+ Shellac/Gel<span class="pill-price">(+$14)</span></span>
+            <span class="addon-pill" data-price="2">+ Soak-off<span class="pill-price">(+$2)</span></span>
           </div>
         </div>
+
+        <div class="svc-price-card" data-base="38">
+          <div class="spc-header">
+            <div><div class="spc-name">Shellac / Gel Manicure</div><div class="spc-desc">Long-lasting gel — no smudge, no chip, no dry time.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$38</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="2">+ Soak-off<span class="pill-price">(+$2)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="40">
+          <div class="spc-header">
+            <div><div class="spc-name">Deluxe Manicure</div><div class="spc-desc">Extended hand massage, paraffin, hot towel finish.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$40</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="8">+ Shellac/Gel<span class="pill-price">(+$8)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="36">
+          <div class="spc-header">
+            <div><div class="spc-name">Spa Pedicure</div><div class="spc-desc">Nail care, buffing, lotion massage, hot towel, polish.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$36</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="18">+ Shellac/Gel<span class="pill-price">(+$18)</span></span>
+            <span class="addon-pill" data-price="5">+ Buffing shiny<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="3">+ Soak-off<span class="pill-price">(+$3)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="45">
+          <div class="spc-header">
+            <div><div class="spc-name">Signature Pedicure</div><div class="spc-desc">Callus treatment, sugar scrub, mud mask, hot towel.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$45</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="17">+ Gel<span class="pill-price">(+$17)</span></span>
+            <span class="addon-pill" data-price="10">+ Paraffin<span class="pill-price">(+$10)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="55">
+          <div class="spc-header">
+            <div><div class="spc-name">Paraffin Pedicure</div><div class="spc-desc">Signature pedicure + paraffin wax treatment.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$55</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="17">+ Gel<span class="pill-price">(+$17)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="70">
+          <div class="spc-header">
+            <div><div class="spc-name">Hot Stone Pedicure</div><div class="spc-desc">Hot stone massage for lower legs and feet.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$70</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="17">+ Gel<span class="pill-price">(+$17)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="75">
+          <div class="spc-header">
+            <div><div class="spc-name">Volcano Pedicure</div><div class="spc-desc">Volcano crystals, sugar scrub, collagen mask, paraffin &amp; extended massage.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$75</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="17">+ Gel<span class="pill-price">(+$17)</span></span>
+          </div>
+        </div>
+
+        <div class="price-note-final">ALL SERVICES ARE FINAL &middot; NO REFUNDS</div>
       </div>
 
-      <!-- PEDICURES -->
-      <div class="price-panel" id="tab-pedicures">
-        <div class="price-rows">
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Spa Pedicure</div>
-              <div class="price-row-desc">Nail care, buffing, lotion massage, hot towel, and polish.</div>
-              <div class="price-row-note">Buffing shiny +$5</div>
-            </div>
-            <div class="price-val">$36</div>
+      <!-- TAB 2: Nail Enhancements -->
+      <div class="price-panel" id="panel-ne">
+
+        <div class="svc-price-card" data-base="50">
+          <div class="spc-header">
+            <div><div class="spc-name">Dip Powder Full Set</div><div class="spc-desc">Odorless, durable — no UV light required.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$50</div><div class="spc-base-note">Starting at</div></div>
           </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Shellac / Gel Pedicure</div>
-              <div class="price-row-desc">Spa pedicure with long-lasting gel color.</div>
-              <div class="price-row-note">Soak-off gel +$3</div>
-            </div>
-            <div class="price-val">$54</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Signature Pedicure</div>
-              <div class="price-row-desc">Callus treatment, sugar scrub, mud mask, and hot towel.</div>
-              <div class="price-row-note">Add gel +$17</div>
-            </div>
-            <div class="price-val">$45</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Paraffin Pedicure</div>
-              <div class="price-row-desc">Signature pedicure plus paraffin wax treatment.</div>
-              <div class="price-row-note">Add gel +$17</div>
-            </div>
-            <div class="price-val">$55</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Hot Stone Pedicure</div>
-              <div class="price-row-desc">Includes hot stone massage for lower legs and feet.</div>
-              <div class="price-row-note">Add gel +$17</div>
-            </div>
-            <div class="price-val">$70</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Volcano Pedicure</div>
-              <div class="price-row-desc">Detox volcano crystals, sugar scrub, collagen mask, paraffin wax, and extended massage.</div>
-              <div class="price-row-note">Add gel +$17</div>
-            </div>
-            <div class="price-val">$75</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Add-On Leg Massage</div>
-              <div class="price-row-desc">10 Minutes · 15 Minutes · 30 Minutes</div>
-            </div>
-            <div class="price-val">Ask us</div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="5">+ Tip ext.<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="5">+ Shape<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="5">+ Length<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="10">+ Cuticle trim<span class="pill-price">(+$10)</span></span>
           </div>
         </div>
+
+        <div class="svc-price-card" data-base="60">
+          <div class="spc-header">
+            <div><div class="spc-name">Dip Powder Pink &amp; White</div><div class="spc-desc">Classic P&amp;W in dip powder formula.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$60</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="5">+ Shape<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="5">+ Length<span class="pill-price">(+$5)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="43">
+          <div class="spc-header">
+            <div><div class="spc-name">Acrylic Full Set</div><div class="spc-desc">Expert sculpted acrylics, non-MMA products.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$43</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="10">+ Gel polish<span class="pill-price">(+$10)</span></span>
+            <span class="addon-pill" data-price="5">+ Custom shape<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="24">+ Pink &amp; White<span class="pill-price">(+$24)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="33">
+          <div class="spc-header">
+            <div><div class="spc-name">Acrylic Fill</div><div class="spc-desc">Precision fill for existing acrylic set.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$33</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="10">+ Gel polish<span class="pill-price">(+$10)</span></span>
+            <span class="addon-pill" data-price="10">+ Cuticle trim<span class="pill-price">(+$10)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="60">
+          <div class="spc-header">
+            <div><div class="spc-name">Liquid Gel Full Set</div><div class="spc-desc">Natural, flexible finish — premium liquid gel.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$60</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="10">+ Gel polish<span class="pill-price">(+$10)</span></span>
+            <span class="addon-pill" data-price="10">+ Pink &amp; White<span class="pill-price">(+$10)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="45">
+          <div class="spc-header">
+            <div><div class="spc-name">Liquid Gel Fill</div><div class="spc-desc">Maintain your liquid gel set with a clean fill.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$45</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="11">+ Gel polish<span class="pill-price">(+$11)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="67">
+          <div class="spc-header">
+            <div><div class="spc-name">Pink &amp; White Full Set</div><div class="spc-desc">Classic P&amp;W acrylic for a timeless look.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$67</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="5">+ Shape<span class="pill-price">(+$5)</span></span>
+            <span class="addon-pill" data-price="5">+ Length<span class="pill-price">(+$5)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="55">
+          <div class="spc-header">
+            <div><div class="spc-name">Pink &amp; White Fill</div><div class="spc-desc">Refresh your P&amp;W acrylic set.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$55</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="5">+ Shape<span class="pill-price">(+$5)</span></span>
+          </div>
+        </div>
+
+        <div class="price-note-final">ALL SERVICES ARE FINAL &middot; NO REFUNDS</div>
       </div>
 
-      <!-- KIDS -->
-      <div class="price-panel" id="tab-kids">
-        <p style="font-size:.8rem;color:#9a9a9a;margin-bottom:1.5rem;">For children 10 years old &amp; under.</p>
-        <div class="price-rows">
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Manicure</div></div>
-            <div class="price-val">$16</div>
+      <!-- TAB 3: Designs & Add-ons -->
+      <div class="price-panel" id="panel-da">
+
+        <div class="svc-price-card" data-base="6">
+          <div class="spc-header">
+            <div><div class="spc-name">Nail Art Design</div><div class="spc-desc">Custom hand-painted art — minimalist to intricate.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$6</div><div class="spc-base-note">Starting at</div></div>
           </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Pedicure</div>
-              <div class="price-row-note">Add gel +$14</div>
-            </div>
-            <div class="price-val">$26</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Polish Change (Hands)</div></div>
-            <div class="price-val">$11</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Polish Change (Feet)</div></div>
-            <div class="price-val">$14</div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="4">+ Almond French<span class="pill-price">(+$4)</span></span>
+            <span class="addon-pill" data-price="9">+ Ombre<span class="pill-price">(+$9)</span></span>
+            <span class="addon-pill" data-price="9">+ Chrome<span class="pill-price">(+$9)</span></span>
+            <span class="addon-pill" data-price="9">+ Cat Eye<span class="pill-price">(+$9)</span></span>
           </div>
         </div>
+
+        <div class="svc-price-card" data-base="15">
+          <div class="spc-header">
+            <div><div class="spc-name">Ombre</div><div class="spc-desc">Smooth gradient fade — classic or multi-color.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$15</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="8">+ With basic mani<span class="pill-price">(+$8)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="5">
+          <div class="spc-header">
+            <div><div class="spc-name">Nail Treatments</div><div class="spc-desc">Finishing touches and protective treatments.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$5</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="0">+ Matte top coat<span class="pill-price">(incl.)</span></span>
+            <span class="addon-pill" data-price="0">+ Shine buff<span class="pill-price">(incl.)</span></span>
+            <span class="addon-pill" data-price="9">+ Paraffin<span class="pill-price">(+$9)</span></span>
+            <span class="addon-pill" data-price="8">+ Clear gel<span class="pill-price">(+$8)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="12">
+          <div class="spc-header">
+            <div><div class="spc-name">Gel Removal</div><div class="spc-desc">Safe, gentle removal of gel polish.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$12</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="3">+ Acrylic removal<span class="pill-price">(+$3)</span></span>
+            <span class="addon-pill" data-price="3">+ Dip removal<span class="pill-price">(+$3)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="15">
+          <div class="spc-header">
+            <div><div class="spc-name">Polish Change (Hands)</div><div class="spc-desc">Fresh colour on your existing nails.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$15</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="13">→ Gel polish<span class="pill-price">($28 total)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="18">
+          <div class="spc-header">
+            <div><div class="spc-name">Polish Change (Feet)</div><div class="spc-desc">Fresh colour on your existing toenails.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$18</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="16">→ Gel polish<span class="pill-price">($34 total)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="14">
+          <div class="spc-header">
+            <div><div class="spc-name">Paraffin Treatment</div><div class="spc-desc">Warm wax soak for soft, moisturised skin.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$14</div></div>
+          </div>
+          <div class="spc-addons"></div>
+        </div>
+
+        <div class="svc-price-card" data-base="5">
+          <div class="spc-header">
+            <div><div class="spc-name">Quick Extras</div><div class="spc-desc">Cut down $2 · Shine buff $5 · Matte coat $5 · Nail repair $5+</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$2</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons"></div>
+        </div>
+
+        <div class="price-note-final">ALL SERVICES ARE FINAL &middot; NO REFUNDS</div>
       </div>
 
-      <!-- DIPPING POWDER -->
-      <div class="price-panel" id="tab-dipping">
-        <div class="price-sub-title">Healthy Nails — No Odor, No UV Light</div>
-        <div class="price-rows">
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Dipping Powder Full Set</div></div>
-            <div class="price-val">$50 &amp; Up</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Dipping Powder Pink &amp; White Full Set</div></div>
-            <div class="price-val">$60 &amp; Up</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Ombre Full Set</div></div>
-            <div class="price-val">$68 &amp; Up</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Add Tip Extension</div></div>
-            <div class="price-val">$5</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Custom Nail Shape (Oval, Almond, Stiletto)</div></div>
-            <div class="price-val">$5</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Length</div></div>
-            <div class="price-val">$5 &amp; Up</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info"><div class="price-row-name">Add Cuticle Trimming</div></div>
-            <div class="price-val">$10</div>
-          </div>
-          <div class="price-row">
-            <div class="price-row-info">
-              <div class="price-row-name">Soak-Off Dip</div>
-              <div class="price-row-note">Extra charge applies</div>
-            </div>
-            <div class="price-val">+$2</div>
-          </div>
-        </div>
-      </div>
+      <!-- TAB 4: Waxing -->
+      <div class="price-panel" id="panel-wx">
 
-      <!-- ENHANCEMENTS -->
-      <div class="price-panel" id="tab-enhancements">
-        <div class="price-sub-title">Non-MMA Products Only</div>
-        <div class="price-two-col">
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic Full Set</div></div>
-              <div class="price-val">$43 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Liquid Gel Full Set (Clear)</div></div>
-              <div class="price-val">$60 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic Fill</div></div>
-              <div class="price-val">$33 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Liquid Gel Fill (Clear)</div></div>
-              <div class="price-val">$45 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic Full Set w/ Gel Polish</div></div>
-              <div class="price-val">$53 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Liquid Gel Full Set w/ Gel Polish</div></div>
-              <div class="price-val">$70 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic Fill w/ Gel Polish</div></div>
-              <div class="price-val">$43 &amp; Up</div>
-            </div>
+        <div class="svc-price-card" data-base="14">
+          <div class="spc-header">
+            <div><div class="spc-name">Eyebrows</div><div class="spc-desc">Clean, defined brow shaping.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$14</div></div>
           </div>
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Liquid Gel Fill w/ Gel Polish</div></div>
-              <div class="price-val">$56 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Pink &amp; White Full Set</div></div>
-              <div class="price-val">$67 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Pink &amp; White Fill</div></div>
-              <div class="price-val">$55 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Pink Fill</div></div>
-              <div class="price-val">$42 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Custom Nail Shape</div></div>
-              <div class="price-val">$5 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Length</div></div>
-              <div class="price-val">$5 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Nail Repair</div></div>
-              <div class="price-val">$5 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Cuticle Trimming</div></div>
-              <div class="price-val">$10</div>
-            </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="6">+ Tweezing<span class="pill-price">(+$6)</span></span>
           </div>
         </div>
-      </div>
 
-      <!-- ADDITIONAL -->
-      <div class="price-panel" id="tab-additional">
-        <div class="price-two-col">
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">French Design</div></div>
-              <div class="price-val">$6 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Almond French</div></div>
-              <div class="price-val">$10 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Nail Art Design</div></div>
-              <div class="price-val">$6 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info">
-                <div class="price-row-name">Ombre</div>
-                <div class="price-row-note">With basic manicure +$8</div>
-              </div>
-              <div class="price-val">$15</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Chrome</div></div>
-              <div class="price-val">$15 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Cat Eye Design</div></div>
-              <div class="price-val">$15 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Matte Top Coat</div></div>
-              <div class="price-val">$5</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic Removal</div></div>
-              <div class="price-val">$15+</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Dip Removal</div></div>
-              <div class="price-val">$15+</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Gel Removal</div></div>
-              <div class="price-val">$12+</div>
-            </div>
+        <div class="svc-price-card" data-base="12">
+          <div class="spc-header">
+            <div><div class="spc-name">Upper Lip</div><div class="spc-desc">Quick, precise lip waxing.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$12</div></div>
           </div>
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic on 1 Toe</div></div>
-              <div class="price-val">$8+</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Acrylic Fill on 2 Toes</div></div>
-              <div class="price-val">$10+</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Polish Change (Hands)</div></div>
-              <div class="price-val">$15</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Polish Change (Feet)</div></div>
-              <div class="price-val">$18</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Gel Polish Change (Hands)</div></div>
-              <div class="price-val">$28</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Gel Polish Change (Feet)</div></div>
-              <div class="price-val">$34</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Add Clear Gel</div></div>
-              <div class="price-val">$13</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Shine Buff</div></div>
-              <div class="price-val">$5</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Cut Down</div></div>
-              <div class="price-val">$2</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Paraffin Treatment</div></div>
-              <div class="price-val">$14</div>
-            </div>
-          </div>
+          <div class="spc-addons"></div>
         </div>
-        <div class="price-note-final">ALL SERVICES ARE FINAL · NO REFUNDS</div>
-      </div>
 
-      <!-- WAXING -->
-      <div class="price-panel" id="tab-waxing">
-        <div class="price-two-col">
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Eyebrows</div></div>
-              <div class="price-val">$14</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Eyebrow Tweezing</div></div>
-              <div class="price-val">$20</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Upper Lip</div></div>
-              <div class="price-val">$12</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Chin</div></div>
-              <div class="price-val">$14 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Side Burns</div></div>
-              <div class="price-val">$15 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Full Face</div></div>
-              <div class="price-val">$45 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Half Arms</div></div>
-              <div class="price-val">$30 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Full Arms</div></div>
-              <div class="price-val">$45 &amp; Up</div>
-            </div>
+        <div class="svc-price-card" data-base="14">
+          <div class="spc-header">
+            <div><div class="spc-name">Chin / Side Burns</div><div class="spc-desc">Chin $14 · Side burns $15+</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$14</div><div class="spc-base-note">Starting at</div></div>
           </div>
-          <div class="price-rows">
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Under Arms</div></div>
-              <div class="price-val">$22 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Half Legs</div></div>
-              <div class="price-val">$40 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Full Legs</div></div>
-              <div class="price-val">$55 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Back</div></div>
-              <div class="price-val">$55 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Chest</div></div>
-              <div class="price-val">$55 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Bikini Line</div></div>
-              <div class="price-val">$35 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Brazilian</div></div>
-              <div class="price-val">$55 &amp; Up</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Ear</div></div>
-              <div class="price-val">$20</div>
-            </div>
-            <div class="price-row">
-              <div class="price-row-info"><div class="price-row-name">Nose</div></div>
-              <div class="price-val">$20</div>
-            </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="1">+ Side burns<span class="pill-price">(+$1)</span></span>
           </div>
         </div>
+
+        <div class="svc-price-card" data-base="45">
+          <div class="spc-header">
+            <div><div class="spc-name">Full Face</div><div class="spc-desc">Complete face wax including brows, lip, chin &amp; cheeks.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$45</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="20">+ Ear &amp; nose<span class="pill-price">(+$20)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="30">
+          <div class="spc-header">
+            <div><div class="spc-name">Arms</div><div class="spc-desc">Half arms $30 · Full arms $45</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$30</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="15">+ Full arms<span class="pill-price">(+$15)</span></span>
+            <span class="addon-pill" data-price="22">→ Under arms only<span class="pill-price">($22)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="40">
+          <div class="spc-header">
+            <div><div class="spc-name">Legs</div><div class="spc-desc">Half legs $40 · Full legs $55</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$40</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="15">+ Full legs<span class="pill-price">(+$15)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="35">
+          <div class="spc-header">
+            <div><div class="spc-name">Bikini Line</div><div class="spc-desc">Neat bikini line wax.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$35</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons">
+            <span class="addon-pill" data-price="20">→ Brazilian<span class="pill-price">($55)</span></span>
+          </div>
+        </div>
+
+        <div class="svc-price-card" data-base="55">
+          <div class="spc-header">
+            <div><div class="spc-name">Back / Chest</div><div class="spc-desc">Full back or chest waxing.</div></div>
+            <div class="spc-price-wrap"><div class="spc-total">$55</div><div class="spc-base-note">Starting at</div></div>
+          </div>
+          <div class="spc-addons"></div>
+        </div>
+
+        <div class="price-note-final">ALL SERVICES ARE FINAL &middot; NO REFUNDS</div>
       </div>
 
     </div><!-- /price-tabs-wrap -->
@@ -1807,8 +1779,9 @@
   document.getElementById('modal-backdrop').addEventListener('click', closeBooking);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBooking(); });
 
-  /* ── Price Menu Tabs ── */
-  (function initTabs() {
+  /* ── Price Menu: tabs + interactive add-on pills ── */
+  (function initPricing() {
+    /* Tab switching */
     const tabs   = document.querySelectorAll('.ptab');
     const panels = document.querySelectorAll('.price-panel');
     tabs.forEach(tab => {
@@ -1816,7 +1789,27 @@
         tabs.forEach(t => t.classList.remove('active'));
         panels.forEach(p => p.classList.remove('active'));
         tab.classList.add('active');
-        document.getElementById('tab-' + tab.dataset.tab).classList.add('active');
+        document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+      });
+    });
+
+    /* Add-on pills: toggle + live price recalc */
+    document.querySelectorAll('.svc-price-card').forEach(card => {
+      const base  = parseInt(card.dataset.base, 10);
+      const total = card.querySelector('.spc-total');
+      const note  = card.querySelector('.spc-base-note');
+      const pills = card.querySelectorAll('.addon-pill');
+
+      function recalc() {
+        let extra = 0;
+        pills.forEach(p => { if (p.classList.contains('selected')) extra += parseInt(p.dataset.price, 10) || 0; });
+        total.textContent = '$' + (base + extra);
+        total.classList.toggle('has-addon', extra > 0);
+        if (note) note.textContent = extra > 0 ? '$' + base + ' + $' + extra + ' extras' : 'Starting at';
+      }
+
+      pills.forEach(pill => {
+        pill.addEventListener('click', () => { pill.classList.toggle('selected'); recalc(); });
       });
     });
   })();
