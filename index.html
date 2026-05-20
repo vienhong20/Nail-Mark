@@ -1662,6 +1662,23 @@
 </div>
 
 <!-- ────────────────────────────────────────────
+     SOCIAL MEDIA COMING SOON MODAL
+──────────────────────────────────────────── -->
+<div id="social-modal" role="dialog" aria-modal="true" aria-label="Social media coming soon">
+  <div class="modal-backdrop" id="social-modal-backdrop"></div>
+  <div class="modal-box">
+    <button class="modal-close" id="social-modal-close" aria-label="Close">✕</button>
+    <span class="modal-icon">🚀</span>
+    <span class="modal-tag">Coming Soon</span>
+    <h2 class="modal-title">Follow Us Soon!</h2>
+    <p class="modal-desc">
+      Instagram and Facebook are not available at the moment,<br>but we'll be launching very soon. Stay tuned!
+    </p>
+    <button class="modal-dismiss" id="social-modal-dismiss" style="width:100%; background:#c9a961; color:#fff; padding:.9rem 1.5rem; border:none; cursor:pointer; font-size:.75rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase; transition:background .25s;">Got It!</button>
+  </div>
+</div>
+
+<!-- ────────────────────────────────────────────
      DESKTOP FLOATING SOCIAL SIDEBAR (posh style)
 ──────────────────────────────────────────── -->
 <div id="float-social" aria-label="Quick contact">
@@ -1826,6 +1843,41 @@
   document.getElementById('modal-dismiss').addEventListener('click', closeBooking);
   document.getElementById('modal-backdrop').addEventListener('click', closeBooking);
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeBooking(); });
+
+  /* ── Social Media Coming Soon Modal ── */
+  const socialModal = document.getElementById('social-modal');
+
+  function openSocialModal(e) {
+    e.preventDefault();
+    socialModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeSocialModal() {
+    socialModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Desktop Instagram & Facebook buttons
+  document.querySelectorAll('#float-social .fs-btn').forEach(btn => {
+    const ariaLabel = btn.getAttribute('aria-label');
+    if (ariaLabel === 'Instagram' || ariaLabel === 'Facebook') {
+      btn.addEventListener('click', openSocialModal);
+    }
+  });
+
+  // Mobile Instagram & Facebook buttons
+  document.querySelectorAll('#mobile-float .mf-btn').forEach(btn => {
+    const ariaLabel = btn.getAttribute('aria-label');
+    if (ariaLabel === 'Instagram' || ariaLabel === 'Facebook') {
+      btn.addEventListener('click', openSocialModal);
+    }
+  });
+
+  document.getElementById('social-modal-close').addEventListener('click', closeSocialModal);
+  document.getElementById('social-modal-dismiss').addEventListener('click', closeSocialModal);
+  document.getElementById('social-modal-backdrop').addEventListener('click', closeSocialModal);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeSocialModal(); });
 
   /* ── Price Menu: tabs + interactive add-on pills ── */
   (function initPricing() {
