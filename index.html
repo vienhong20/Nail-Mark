@@ -293,12 +293,13 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: 280px 280px;
+      grid-template-rows: auto auto;
       gap: .6rem;
     }
-    .g-item { position: relative; overflow: hidden; }
+    .g-item { position: relative; overflow: hidden; height: 280px; }
     .g-item:nth-child(1) { grid-row: 1 / 3; }
     .g-item:nth-child(5) { grid-column: 2 / 4; }
+    .g-item:nth-child(6) { grid-column: 2 / 4; }
     .g-item img {
       width: 100%; height: 100%; object-fit: cover;
       transition: transform .65s ease; display: block;
@@ -1377,23 +1378,27 @@
 
     <div class="gallery-grid reveal">
       <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80&auto=format&fit=crop" alt="Luxury nail art design" loading="lazy" />
+        <img src="IMG_0902.jpg" alt="Beautiful nail art design" loading="lazy" />
         <div class="g-overlay"><div class="g-plus">+</div></div>
       </div>
       <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1604922824961-4a7bba1fe1f3?w=600&q=80&auto=format&fit=crop" alt="Gel manicure close up" loading="lazy" />
+        <img src="IMG_1022.jpg" alt="Elegant manicure" loading="lazy" />
         <div class="g-overlay"><div class="g-plus">+</div></div>
       </div>
       <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=600&q=80&auto=format&fit=crop" alt="Nail art design" loading="lazy" />
+        <img src="IMG_1063.jpg" alt="Luxury nail design" loading="lazy" />
         <div class="g-overlay"><div class="g-plus">+</div></div>
       </div>
       <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&q=80&auto=format&fit=crop" alt="Nail salon interior" loading="lazy" />
+        <img src="IMG_1116.jpg" alt="Stylish nails" loading="lazy" />
         <div class="g-overlay"><div class="g-plus">+</div></div>
       </div>
       <div class="g-item">
-        <img src="https://images.unsplash.com/photo-1571290274554-6a2eaa771e5f?w=800&q=80&auto=format&fit=crop" alt="Luxury pedicure spa" loading="lazy" />
+        <img src="IMG_1504.jpg" alt="Premium nail art" loading="lazy" />
+        <div class="g-overlay"><div class="g-plus">+</div></div>
+      </div>
+      <div class="g-item">
+        <img src="IMG_3113.jpg" alt="Gorgeous manicure" loading="lazy" />
         <div class="g-overlay"><div class="g-plus">+</div></div>
       </div>
     </div>
